@@ -2,7 +2,6 @@
 layout: default
 title:  "Hello EARTH!"
 date:   2018-02-14 06:14:19 -0600
-categories: earth
 ---
 
 The [Bitcoin Cash](https://www.bitcoincash.org/) ecosystem is growing quickly. People all over the EARTH are being drawn to the compelling original vision of frictionless and borderless money facilitated by on-chain scaling. The goal of BITBOX is to build a suite of tools which help accelerate the quality and quanity of applications built on top of the $BCH platform.

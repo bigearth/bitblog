@@ -26,3 +26,5 @@ BITBOX is on GitHub under the [MIT Open Source License](https://opensource.org/l
 * [https://github.com/bigearth/bitbox-electron](https://github.com/bigearth/bitbox-electron)
 * [https://github.com/bigearth/bitbox-cli](https://github.com/bigearth/bitbox-cli)
 * [https://github.com/bigearth/bitbox.earth](https://github.com/bigearth/bitbox.earth)
+
+Thanks!

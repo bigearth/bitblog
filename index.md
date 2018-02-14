@@ -5,10 +5,8 @@
 layout: default
 ---
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="/bitblog/2018/02/14/hello-earth.html">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+{% for post in site.posts %}
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.excerpt }}</p>
+  <a href="/bitblog{{post.url}}">Read more...</a>
+{% endfor %}

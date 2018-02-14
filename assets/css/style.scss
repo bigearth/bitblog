@@ -1,0 +1,23 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+  background: #1f8dd6;
+
+  button {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
+
+.main-content h2 {
+  color: #1f8dd6;
+}
+
+a, a:hover {
+  color: #1f8dd6;
+  text-decoration: none;
+}

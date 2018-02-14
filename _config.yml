@@ -17,8 +17,8 @@ title: BITBLOG
 email: gabriel.cardona@clone.earth
 description: >- # this means to ignore newlines until "baseurl:"
   Updates on the ever changing world of BITBOX and Bitcoin Cash.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/bitblog" # the subpath of your site, e.g. /blog
+url: "https://bigearth.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: clone_earth
 github_username:  bigearth
 

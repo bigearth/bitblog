@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "Hello EARTH!"
 date:   2018-02-14 06:14:19 -0600
 categories: earth

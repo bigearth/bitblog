@@ -77,6 +77,8 @@ for (let i = 0; i < 10; i++) {
 };
 ```
 
+You can optionally set your own custom derivation path.
+
 ![Derivation Path]({{ "/assets/hd-path.png" | absolute_url }})
 
 ## Display to user

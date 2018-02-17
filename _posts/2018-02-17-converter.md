@@ -14,6 +14,8 @@ BITBOX recently added it's own conversion tool so you can quickly and easily con
 
 Simply paste in a legacy or cashaddr address and BITBOX will convert it to both formats and generate QR codes.
 
+You can also paste in a private key in Wallet Import Format (WIF) to generate cashaddr/legacy addresses and QR codes.
+
 ![Converter]({{ "/assets/converter.png" | absolute_url }})
 
 We're using [bchaddr.js](https://github.com/bitcoincashjs/bchaddrjs) along w/ [qrcode.react](https://github.com/zpao/qrcode.react).
@@ -24,3 +26,11 @@ let base58Check = bchaddr.toLegacyAddress(value);
 let cashaddrQR = <QRCode value={cashaddr} />;
 let base58CheckQR = <QRCode value={base58Check} />;
 ```
+
+## Sending actual funds
+
+All the addresses in BITBOX are 100% legit on the $BCH network. However BITBOX doesn't actually connect to the Bitcoin Cash network so if you were to send actual $BCH to one of these generated addresses you wouldn't see it. You would be able to see it in a live block explorer.
+
+You can safely sweep any funds sent to a BITBOX generated address into a wallet via the private key WIF. But we strongly advice against sending any actual funds to a BITBOX address. This is a development tool and not meant to handle actual funds.
+
+If you want to send real coins to a BITBOX address and then sweep them back into a live wallet we suggest using the $BCH testnet.

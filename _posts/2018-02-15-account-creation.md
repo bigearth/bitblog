@@ -4,8 +4,6 @@ title:  "Account Creation"
 date:   2018-02-15 06:14:19 -0600
 ---
 
-# Account Creation
-
 Bitcoin Cash wallets are really just collections of key pairs. Hiearchical Deterministic wallets are the state of the art for reliably creating and backing up collections of related keypairs. For more detail read Andreas's in depth explation about how they work in [Mastering Bitcoin chapter 5](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch05.asciidoc).
 
 BITBOX is an HD wallet which aims to be compliant w/ BIPS 32, 39, 43, 44. When you first fire up BITBOX we create a random mnemonic from 16 bytes of entropy which we then use to create a root seed, master key and 10 default accounts.

@@ -4,7 +4,7 @@ title:  "Sign & Verify"
 date:   2018-02-17
 ---
 
-BITBOX enables you to cryptographically prove ownership of an address via signing messages. You can also verify that ownershup of an address from another person.
+BITBOX enables you to cryptographically prove ownership of an address via signing messages. You can also verify that ownership of an address from another person.
 
 If, for example, you lost access to an account you could prove you were the owner that had been sending payments to that account by signing a specific message from that address.
 

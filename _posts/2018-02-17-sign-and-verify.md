@@ -27,3 +27,22 @@ You can verify a message from any address on the Bitcoin Cash network. Just past
 If the address or signature are incorrectly formatted or the signature doesn't match the message and address you'll get an error message.
 
 ![Converter]({{ "/assets/verify-fail.png" | absolute_url }})
+
+## Using the command line
+
+BITBOX supports the entire Bitcoin Cash RPC. `bitbox-cli` now supports `signmessage`, `signmessagewithprivkey` and `verifymessage` in #cashaddr (w/ or w/out the prefix) and legacy.
+
+```
+> BITBOX.signmessage("bitcoincash:qrqxcnj3z6rsg4k6lcshsh3a4lftxa03aqyy258tm7", "BCH FTW")
+> H1K8O9ho7qhDmNpzxKoi98RAKpvOiC/jXx4eow1GT0JaR2QipI2B2JOvOEp++EaPuLcjWsbEsgoV6jSrknb17j4=
+```
+
+```
+> BITBOX.verifymessage("bitcoincash:qrqxcnj3z6rsg4k6lcshsh3a4lftxa03aqyy258tm7", "H1K8O9ho7qhDmNpzxKoi98RAKpvOiC/jXx4eow1GT0JaR2QipI2B2JOvOEp++EaPuLcjWsbEsgoV6jSrknb17j4=", "BCH FTW")
+> true
+```
+
+```
+> BITBOX.signmessagewithprivkey("KwM8QgcNy2aLnicbQYjXMJUMWYPvLW8ZD86ZTqCaQ8pQmQoS6YY4", "Winning")
+> IJ/A0vEIy+RdZ1DRVwlkVWh2ggTJu612DhW0sgj88w4iCfc+1BP1Ib/3ZZYT6YAUyWuG8c8/wlV+uwE0s1kUE8s=
+```

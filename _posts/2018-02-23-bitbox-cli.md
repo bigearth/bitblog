@@ -51,7 +51,11 @@ bitbox console --environment production
 This will load the console and create a `BITBOX` object w/ the entire $BCH JSON RPC available. That `BITBOX` object can send commands to the running Bitcoin ABC node that you configured in the previous step.
 
 ```
-⚡️  BITBOX ⚡️   BITBOX.getnetworkinfo().then((result) => { console.log(result); }, (err) => { console.log(err); });
+⚡️  BITBOX ⚡️   BITBOX.getnetworkinfo()
+               .then((result) => {
+                 console.log(result); },
+                 (err) => { console.log(err); }
+               );
 
 { version: 160200,
   subversion: '/Bitcoin ABC:0.16.2(EB8.0)/',
@@ -82,3 +86,37 @@ This will load the console and create a `BITBOX` object w/ the entire $BCH JSON 
   localaddresses: [ { address: 'ip.address.of.abc.node', port: 8333, score: 1964 } ],
   warnings: '' }
 ```
+
+## Browser
+
+You can also use `BITBOX` from the browser. First install `bitbox-cli` locally w/ npm.
+
+```
+npm install bitbox-cli --save
+```
+
+Next you need to `require` or `import` `BITBOXCli` into your app depending on if your are transpiling ES6 or not. Once you `require` `BITBOXCli` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
+
+```js
+let BITBOXCli = require('./node_modules/bitbox-cli/lib/BITBOXCli').default;
+let BITBOX = new BITBOXCli({
+  protocol: 'http',
+  host: 'ip.address.of.abc.node',
+  port: 8332,
+  username: 'myUser',
+  password: 'str0ngP@ssw0rd'
+});
+
+
+BITBOX.getnetworkinfo()
+.then((result) => {
+  console.log(result); },
+  (err) => { console.log(err); }
+);
+```
+
+Again the entire Bitcoin Cash JSON RPC is available on the `BITBOX` object.
+
+## Summary
+
+BITBOX can now be used from the command line or the browser to send commands to your running Bitcoin ABC nodes. We'll be testing against Bitcoin Unlimited nodes next to confirm we have 100% converage there as well.

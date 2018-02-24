@@ -11,7 +11,10 @@ Imagine you have a $BCH app which you'd like to deploy. However before doing tha
 Let's say our newly created $BCH app is just a simple call to `getnetworkinfo` but of course it could be much more complex as `BITBOX` supports the entire $BCH RPC.
 
 ```js
-BITBOX.getnetworkinfo().then((result) => { console.log('result', result); }, (err) => { console.log(err); })
+BITBOX.getnetworkinfo()
+  .then((result) => { console.log(result); }, 
+  (err) => { console.log(err);
+})
 ```
 
 To test our code first stub out an app w/ production credentials

@@ -98,7 +98,7 @@ npm install bitbox-cli --save
 Next you need to `require` or `import` `BITBOXCli` into your app depending on if your are transpiling ES6 or not. Once you `require` `BITBOXCli` into your app you then create an instance of `BITBOX` and pass in a config object w/ the same values you used at the command line in the previous steps.
 
 ```js
-let BITBOXCli = require('./node_modules/bitbox-cli/lib/BITBOXCli').default;
+let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
 let BITBOX = new BITBOXCli({
   protocol: 'http',
   host: 'ip.address.of.abc.node',

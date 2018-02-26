@@ -115,7 +115,7 @@ BITBOX.getnetworkinfo()
 );
 ```
 
-Again the entire Bitcoin Cash JSON RPC is available on the `BITBOX` object.
+Again the entire Bitcoin Cash JSON RPC is available on the `BITBOX` object. BITBOX accepts incoming CORS requests but for this to work on your remote $BCH node you'll need to enable CORS.
 
 ## Summary
 

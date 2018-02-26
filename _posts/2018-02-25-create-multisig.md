@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "Multiple Environments"
+title:  "Multisignature Addresses"
 date:   2018-02-25
 ---
 

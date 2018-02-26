@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  "Multiple Environments"
-date:   2018-02-17
+date:   2018-02-24
 ---
 
 Imagine you have a $BCH app which you'd like to deploy. However before doing that it seems like you should test it. BITBOX console lets you quickly switch between sending commands to your local instance or your full node running on the cloud. That way you can test your code locally before deploying to a remote server w/ production running $BCH node.
@@ -12,7 +12,7 @@ Let's say our newly created $BCH app is just a simple call to `getnetworkinfo` b
 
 ```js
 BITBOX.getnetworkinfo()
-  .then((result) => { console.log(result); }, 
+  .then((result) => { console.log(result); },
   (err) => { console.log(err);
 })
 ```

@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  "bitbox-cli"
-date:   2018-02-17
+date:   2018-02-23
 ---
 
 BITBOX aims to be the go-to toolset for $BCH developers. We want you to be able to run your code and tests against your BITBOX before deploying to live environments and aim for 100% Bitcoin Cash JSON RPC API coverage.

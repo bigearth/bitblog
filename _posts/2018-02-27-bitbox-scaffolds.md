@@ -6,7 +6,7 @@ date:   2018-02-27
 
 The goal of BITBOX is to accelerate how quickly $BCH devs can create their apps. W/ that in mind today we're launching Scaffolds. This is a way to bootstrap a Bitcoin Cash application in under a minute.
 
-When creating a new application on any platform too much time is spent setting everything up and configuring it. BITBOX scaffolds do th eheavy lifting for you and let you focus on building your app.
+When creating a new application on any platform too much time is spent setting everything up and configuring it. BITBOX scaffolds do the heavy lifting for you and let you focus on building your app.
 
 ## Setup
 

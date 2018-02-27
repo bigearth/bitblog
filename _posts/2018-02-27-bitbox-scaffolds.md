@@ -27,6 +27,22 @@ When creating a new application on any platform too much time is spent setting e
 
 ![Hello BITBOX]({{ "/assets/hello-bitbox.png" | absolute_url }})
 
+## Config
+
+By default your new app will connect to your local running BITBOX but if you want to connect to a remote running node update the `BITBOX` instantiation in `App.js`
+
+```js
+let BITBOX = new BITBOXCli({
+  protocol: 'http',
+  host: 'remote-ip-address',
+  port: 8332,
+  username: 'rpc-username',
+  password: 'rpc-password'
+});
+```
+
+You'll need to allow CORS on your remote server to accept in coming requests.
+
 ## React
 
 This initial release only supports React but the intention is to have a registry where people can post scaffolds and an API for `bitbox` to install them.

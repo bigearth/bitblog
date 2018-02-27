@@ -52,7 +52,7 @@ To quickly create a [Node JS app w/ BITBOCX bindings](https://github.com/bigeart
 8. Confirm you are seeing the `getinfo` method returning data from your local BITBOX
 9. Win
 
-### Config
+## Config
 
 By default your new app will connect to your local running BITBOX but if you want to connect to a remote running node update the `BITBOX` instantiation.
 

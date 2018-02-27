@@ -8,7 +8,11 @@ The goal of BITBOX is to accelerate how quickly $BCH devs can create their apps.
 
 When creating a new application on any platform too much time is spent setting everything up and configuring it. BITBOX scaffolds do the heavy lifting for you and let you focus on building your app.
 
-## Setup
+## React
+
+To quickly create a [React app w/ BITBOCX web bindings](https://github.com/bigearth/bitbox-scaffold-react) follow these steps.
+
+### Setup
 
 1. Download the latest build from [bitbox.earth](https://www.bitbox.earth/) and compare [the checksums](https://github.com/bigearth/keys-n-hashes)
 2. Start your local BITBOX
@@ -27,9 +31,30 @@ When creating a new application on any platform too much time is spent setting e
 
 ![Hello BITBOX]({{ "/assets/hello-bitbox.png" | absolute_url }})
 
-## Config
+## Node
 
-By default your new app will connect to your local running BITBOX but if you want to connect to a remote running node update the `BITBOX` instantiation in `App.js`
+To quickly create a [Node JS app w/ BITBOCX bindings](https://github.com/bigearth/bitbox-scaffold-node) follow these steps.
+
+### Setup
+
+1. Download the latest build from [bitbox.earth](https://www.bitbox.earth/) and compare [the checksums](https://github.com/bigearth/keys-n-hashes)
+2. Start your local BITBOX
+3. [Install `bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) globally
+  * `npm install bitbox-cli --global`
+4. Create empty directory for your new app
+  * `mkdir BCH4all && cd BCH4all`
+5. Scaffold a React app w/ BITBOX web bindings
+  * `bitbox scaffold --framework node`
+6. Install dependencies
+  * `npm install`
+7. Start the app
+  * `npm start`
+8. Confirm you are seeing the `getinfo` method returning data from your local BITBOX
+9. Win
+
+### Config
+
+By default your new app will connect to your local running BITBOX but if you want to connect to a remote running node update the `BITBOX` instantiation.
 
 ```js
 let BITBOX = new BITBOXCli({
@@ -41,12 +66,10 @@ let BITBOX = new BITBOXCli({
 });
 ```
 
-You'll need to allow CORS on your remote server to accept in coming requests.
-
-## React
-
-This initial release only supports React but the intention is to have a registry where people can post scaffolds and an API for `bitbox` to install them.
+You'll need to allow CORS on your remote server to accept in coming requests if you're using the React scaffold.
 
 ## Summary
+
+This initial release only supports React and node but the intention is to have a registry where people can post scaffolds and an API for `bitbox` to install them.
 
 W/ BITBOX Scaffolds you can now create a $BCH app in under a munute. This should accelerate how quickly developers can create Bitcoin Cash apps. Go developers go!

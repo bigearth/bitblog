@@ -25,6 +25,8 @@ When creating a new application on any platform too much time is spent setting e
 8. Open a browser to `http://localhost:3000/` and confirm you are seeing the `getinfo` method returning data from your local BITBOX
 9. Win
 
+![Hello BITBOX]({{ "/assets/hello-bitbox.png" | absolute_url }})
+
 ## React
 
 This initial release only supports React but the intention is to have a registry where people can post scaffolds and an API for `bitbox` to install them.

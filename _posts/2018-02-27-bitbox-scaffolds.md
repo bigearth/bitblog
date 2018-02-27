@@ -10,7 +10,7 @@ When creating a new application on any platform too much time is spent setting e
 
 ## React
 
-To quickly create a [React app w/ BITBOCX web bindings](https://github.com/bigearth/bitbox-scaffold-react) follow these steps.
+To quickly create a [React app w/ BITBOX web bindings](https://github.com/bigearth/bitbox-scaffold-react) follow these steps.
 
 ### Setup
 
@@ -33,7 +33,7 @@ To quickly create a [React app w/ BITBOCX web bindings](https://github.com/bigea
 
 ## Node
 
-To quickly create a [Node JS app w/ BITBOCX bindings](https://github.com/bigearth/bitbox-scaffold-node) follow these steps.
+To quickly create a [Node JS app w/ BITBOX bindings](https://github.com/bigearth/bitbox-scaffold-node) follow these steps.
 
 ### Setup
 

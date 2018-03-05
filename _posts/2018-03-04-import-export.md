@@ -26,7 +26,7 @@ If you click the Import button a modal will open with `<textarea>` in to which y
 
 ![Import 1]({{ "/assets/import1.png" | absolute_url }})
 
-After pasting in the BITBOX you which to import click the 'import' button and the BITBOX was properly formatted you'll see 'imported' with a checkbox. Your local BITBOX should now reflect the BITBOX which you just imported.
+After pasting in the BITBOX you wish to import click the 'import' button and if the BITBOX was properly formatted you'll see 'imported' with a checkbox. Your local BITBOX should now reflect the BITBOX which you just imported.
 
 ![Import 2]({{ "/assets/import2.png" | absolute_url }})
 

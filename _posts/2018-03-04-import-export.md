@@ -4,7 +4,7 @@ title:  "Import & Export"
 date:   2018-03-04
 ---
 
-BITBOX recently underwent a [large code refactor](https://github.com/bigearth/bitbox-electron/pull/10/files) to port to [Redux](https://redux.js.org). This made us completely think out the state tree, remove any calls to `this.setState()`, create action types/creators and compose reducers w/ `combineReducers` and `<Provider>`. This change is completely under the hood and won't affect the way BITBOX behaves nore will it introduce any breakages w/ your apps.
+BITBOX recently underwent a [large code refactor](https://github.com/bigearth/bitbox-electron/pull/10/files) to port to [Redux](https://redux.js.org). This made us completely think out the state tree, remove any calls to `this.setState()`, create action types/creators and compose reducers w/ `combineReducers` and `<Provider>`. This change is completely under the hood and won't affect the way BITBOX behaves nor will it introduce any breakages w/ your apps.
 
 This change is to ensure that as BITBOX grows there is clarity around how things are happening internally. With that in mind you can now export the state of your BITBOX and import it in to another instance of BITBOX. This should make it much easier to debug what's happening w/ your app state as well as introduce regular backups.
 

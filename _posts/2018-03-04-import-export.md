@@ -12,7 +12,7 @@ This change is to ensure that as BITBOX grows there is clarity around how things
 
 ![Import and Export buttons]({{ "/assets/import-export.png" | absolute_url }})
 
-Now at the top right next to the configuration cog icon you'll see import and export icons. If you click the Export icon to open a modal with the entire state of your BITBOX as Javascript Object.
+Now at the top right next to the configuration cog icon you'll see import and export icons. Click the Export icon to open a modal with the entire state of your BITBOX as Javascript Object.
 
 ![Export 1]({{ "/assets/export1.png" | absolute_url }})
 

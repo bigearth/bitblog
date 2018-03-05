@@ -4,7 +4,7 @@ title:  "Utilities part 1"
 date:   2018-03-05
 ---
 
-`bitbox-cli` recently added 2 new Object full of utility methods to help you accelerate your $BCH workflow. The <code>BitcoinCash</code> methods convert between satoshis and whole units. They also convert legacy addresses to cashaddr and reverse as well as detecting address formats, types and networks.
+`bitbox-cli` recently added 2 new Objects full of utility methods to help you accelerate your $BCH workflow. The <code>BitcoinCash</code> methods convert between satoshis and whole units. They also convert legacy addresses to cashaddr and reverse as well as detecting address formats, types and networks.
 
 The <code>Crypto</code> methods let you create sha256 and ripemd160 hashes as well as generate random bytes. Together the <code>BitcoinCash</code> and <code>Crypto</code> utilities let you quickly build out a great $BCH application.
 

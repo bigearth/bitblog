@@ -75,8 +75,8 @@ BITBOX.Crypto.randomBytes(32)
 
 `bitbox-cli` leverages several really great libraries. Please show these people support.
 
-* https://nodejs.org/api/crypto.html
-* https://github.com/bitcoinjs/bitcoinjs-lib
-* https://github.com/bitcoinjs/bip39
-* https://github.com/bitcoincashjs/bchaddrjs
-* https://github.com/dawsbot/satoshi-bitcoin
+* [https://nodejs.org/api/crypto.html](https://nodejs.org/api/crypto.html)
+* [https://github.com/bitcoinjs/bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
+* [https://github.com/bitcoinjs/bip39](https://github.com/bitcoinjs/bip39)
+* [https://github.com/bitcoincashjs/bchaddrjs](https://github.com/bitcoincashjs/bchaddrjs)
+* [https://github.com/dawsbot/satoshi-bitcoin](https://github.com/dawsbot/satoshi-bitcoin)

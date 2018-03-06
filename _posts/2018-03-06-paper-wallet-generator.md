@@ -64,4 +64,4 @@ BITBOX.BitcoinCash.keypairsFromMnemonic(mnemonic, 5))
 
 ## Summary
 
-Creating paper wallets to securely store your Bitcoin Cash offline is now easier than ever w/ `bitbox paper`
+Creating paper wallets to securely store your Bitcoin Cash offline is now easier than ever w/ `bitbox paper`. More info about [bitbox-cli](https://www.npmjs.com/package/bitbox-cli).

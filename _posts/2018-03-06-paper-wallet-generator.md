@@ -62,8 +62,6 @@ BITBOX.BitcoinCash.keypairsFromMnemonic(mnemonic, 5))
 //     address: 'bitcoincash:qp8xjllc75c2hgrpjy3f6kegtfqgmn72dqs0y20anv' } ]
 ```
 
-
-
 ## Summary
 
 Creating paper wallets to securely store your Bitcoin Cash offline is now easier than ever w/ `bitbox paper`.

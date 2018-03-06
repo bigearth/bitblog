@@ -21,7 +21,7 @@ Creating cashaddr paper wallet on mainnet
 
 ![Mnemonic]({{ "/assets/paper-wallet.png" | absolute_url }})
 
-Pass in a flag for `--encoding` to change from the default `cashaddr` to `legacy`. Also pass in a flag to change from the default `mainnet` to `testnet` if you're the type of person who backs up their testnet coins.
+Pass in a flag for `--encoding` to change from the default `cashaddr` to `legacy`. Also pass in a flag for `--network` to change from the default `mainnet` to `testnet` if you're the type of person who backs up their testnet coins.
 
 ```
 > bitbox paper --encoding legacy --network testnet

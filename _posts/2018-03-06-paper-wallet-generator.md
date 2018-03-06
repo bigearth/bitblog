@@ -37,4 +37,4 @@ Creating legacy paper wallet on testnet
 
 ## Summary
 
-Creating paper wallets to securely store your Bitcoin Cash offline is now easier than every w/ `bitbox paper`.
+Creating paper wallets to securely store your Bitcoin Cash offline is now easier than ever w/ `bitbox paper`.

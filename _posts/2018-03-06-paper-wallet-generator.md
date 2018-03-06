@@ -21,7 +21,7 @@ Creating cashaddr paper wallet on mainnet
 
 ![Mnemonic]({{ "/assets/paper-wallet.png" | absolute_url }})
 
-You can send $BCH to the public address and it will be safely stored offline. Later you can use a wallet such as [Bitcoin.com's iOS wallet](https://itunes.apple.com/us/app/bitcoin-wallet-by-bitcoin-com/id1252903728?mt=8) to scap the private key WIF and sweep the coins to that wallet for spending.
+You can send $BCH to the public address and it will be safely stored offline. Later you can use a wallet such as [Bitcoin.com's iOS wallet](https://itunes.apple.com/us/app/bitcoin-wallet-by-bitcoin-com/id1252903728?mt=8) to scan the private key WIF and sweep the coins to that wallet for spending.
 
 ### Options
 

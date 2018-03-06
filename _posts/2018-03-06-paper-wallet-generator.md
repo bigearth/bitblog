@@ -35,6 +35,35 @@ Creating legacy paper wallet on testnet
 
 ![Mnemonic]({{ "/assets/paper-wallet-legacy-testnet.png" | absolute_url }})
 
+## `keypairsFromMnemonic`
+
+`BITBOX.BitcoinCash` also has a utility method called `keypairsFromMnemonic` which takes as arguments a mnemonic and the number of keypairs to generate. It creates the addresses as the nth external change address of the first account from that mnemonic w/ this derivation path: `m/44'/145'/0'/0/n`.
+
+This method is useful if you want to handle QR code generation yourself and just need the keypairs.
+
+```js
+// First create a mnemonic from 32 bytes of random entropy
+let mnemonic = BITBOX.BitcoinCash.entropyToMnemonic(32);
+// symptom owner ridge follow buffalo choose stem depend million jar lemon claw color credit remove model pudding slot fiber west heavy ranch bird wet
+
+// Then call `keypairsFromMnemonic` and pass in your mnemonic and how many keypairs you'd like
+BITBOX.BitcoinCash.keypairsFromMnemonic(mnemonic, 5))
+// it returns the following array.
+//
+// [ { privateKeyWIF: 'Kz6b1TszeUGaypUpRCnfD2L17bQSW93o4j3VMpvT5e5BqaF9XkyP',
+//     address: 'bitcoincash:qp8a4vzfk9kstwsl4ud4ym3z2tckdf7a4gfwkxvtfq' },
+//   { privateKeyWIF: 'L5ZHQ2BdTQaTq2A8HNsdkHYKPLsfrHgvJyrVxHFFZyN9K3fmeoiG',
+//     address: 'bitcoincash:qq5nxh27up6hcm0nn36lxtu7n8a7l6jsj52s8dvtex' },
+//   { privateKeyWIF: 'KwyY3Z7STwbxnmQXe1vVmXhT8Y3W1BJQpRgteRhTWCyvvdro2j33',
+//     address: 'bitcoincash:qzj9n9jmnmyeqfdc5k65kxta3c7ch0g3wudeyjeg3y' },
+//   { privateKeyWIF: 'KxMG2mjL8DZQCaoXz8aFw5XYqguKiDHBb16JwDQMGa7ga7kfy9cE',
+//     address: 'bitcoincash:qrhj0lesz6sn7l4hc5arh5tt8k583ahdaun6mcdjx8' },
+//   { privateKeyWIF: 'Kz3qqJ8GFSSbDrBqtV7mfhBoDPkSmMKtp7Yk62psDgmRjyU8id8J',
+//     address: 'bitcoincash:qp8xjllc75c2hgrpjy3f6kegtfqgmn72dqs0y20anv' } ]
+```
+
+
+
 ## Summary
 
 Creating paper wallets to securely store your Bitcoin Cash offline is now easier than ever w/ `bitbox paper`.

@@ -37,7 +37,7 @@ Creating legacy paper wallet on testnet
 
 ## `keypairsFromMnemonic`
 
-`BITBOX.BitcoinCash` also has a utility method called `keypairsFromMnemonic` which takes as arguments a mnemonic and the number of keypairs to generate. It creates the addresses as the nth external change address of the first account from that mnemonic w/ this derivation path: `m/44'/145'/0'/0/n`.
+`BITBOX.BitcoinCash` also has a utility method called `keypairsFromMnemonic` which takes as arguments a mnemonic and the number of keypairs to generate. It creates the addresses as the `n`th external change address of the first account from that mnemonic w/ this derivation path: `m/44'/145'/0'/0/n`.
 
 This method is useful if you want to handle QR code generation yourself and just need the keypairs.
 
@@ -47,7 +47,7 @@ let mnemonic = BITBOX.BitcoinCash.entropyToMnemonic(32);
 // symptom owner ridge follow buffalo choose stem depend million jar lemon claw color credit remove model pudding slot fiber west heavy ranch bird wet
 
 // Then call `keypairsFromMnemonic` and pass in your mnemonic and how many keypairs you'd like
-BITBOX.BitcoinCash.keypairsFromMnemonic(mnemonic, 5))
+BITBOX.BitcoinCash.keypairsFromMnemonic(mnemonic, 5);
 // it returns the following array.
 //
 // [ { privateKeyWIF: 'Kz6b1TszeUGaypUpRCnfD2L17bQSW93o4j3VMpvT5e5BqaF9XkyP',

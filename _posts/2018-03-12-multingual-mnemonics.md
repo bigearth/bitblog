@@ -112,12 +112,26 @@ BITBOX.BitcoinCash.translateMnemonic(spanishMnemonic, 'spanish', 'korean')
 BITBOX GUI has also been updated to generate mnemonics in all of the above languages. There is now a language selector on the configuration screen. Select the language that you'd like to use and restart your BITBOX.
 
 ![]({{ "/assets/language-select.png" | absolute_url }})
-![]({{ "/assets/chinese_simplified.png" | absolute_url }})
-![]({{ "/assets/chinese_traditional.png" | absolute_url }})
+
+### Chinese simplified
+![]({{ "/assets/chinese-simplified.png" | absolute_url }})
+
+### Chinese traditional
+![]({{ "/assets/chinese-traditional.png" | absolute_url }})
+
+### French
 ![]({{ "/assets/french.png" | absolute_url }})
+
+### Italian
 ![]({{ "/assets/italian.png" | absolute_url }})
+
+### Japanese
 ![]({{ "/assets/japanese.png" | absolute_url }})
+
+### Korean
 ![]({{ "/assets/korean.png" | absolute_url }})
+
+### Spa
 ![]({{ "/assets/spa.png" | absolute_url }})
 
 ## Summary

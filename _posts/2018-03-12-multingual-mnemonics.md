@@ -6,6 +6,8 @@ date:   2018-03-12
 
 Bitcoin Cash is meant for people all over EARTH. Most of those people don't speak english. That's why today we're releasing `mnemonicWordLists` so you can generate mnemonics in 8 different languages to help spread $BCH to people all over the planet.
 
+We're also releasing `translateMnemonic` to make it quick and easy to translate your mnemonics between any of the 8 supported languages.
+
 ## `mnemonicWordLists`
 
 `BITBOX.BitcoinCash` now has a `mnemonicWordLists` method which returns an object w/ the following keys:
@@ -81,6 +83,22 @@ BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().
 ```js
 BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().spanish);
 // combate hundir trauma edad élite medio grave pie aduana donar pimienta bodega
+```
+
+## `translateMnemonic`
+
+BITBOX enables you to translate your mnemonics between any of the 8 supported languages.
+
+```js
+// create korean mnemonic
+let koreanMnemonic = BITBOX.BitcoinCash.generateMnemonic(256, BITBOX.BitcoinCash.mnemonicWordLists().korean);
+// 상대 조직 피곤 기간 장면 저런 서쪽 신고 연예인 고춧가루 활짝 세종대왕 거울 대충 벨트 제일 저곳 남녀 수술 수학 학원 금년 유학 인공
+// translate it to spanish
+let spanishMnemonic = BITBOX.BitcoinCash.translateMnemonic(koreanMnemonic, 'korean', 'spanish')
+// gato razón torero bobina pintor poema grieta leer mirar aparato vivaz hembra alambre cielo esencia rabia poder buscar incapaz instante trofeo bicho oído pájaro
+// translate back to korean
+BITBOX.BitcoinCash.translateMnemonic(spanishMnemonic, 'spanish', 'korean')
+// 상대 조직 피곤 기간 장면 저런 서쪽 신고 연예인 고춧가루 활짝 세종대왕 거울 대충 벨트 제일 저곳 남녀 수술 수학 학원 금년 유학 인공
 ```
 
 ## `bitbox paper`

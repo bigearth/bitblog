@@ -107,6 +107,19 @@ BITBOX.BitcoinCash.translateMnemonic(spanishMnemonic, 'spanish', 'korean')
 
 ![Korean Paper Wallet]({{ "/assets/paper-korean.png" | absolute_url }})
 
+## BITBOX GUI
+
+BITBOX GUI has also been updated to generate mnemonics in all of the above languages. There is now a language selector on the configuration screen. Select the language that you'd like to use and restart your BITBOX.
+
+![]({{ "/assets/language-select.png" | absolute_url }})
+![]({{ "/assets/chinese_simplified.png" | absolute_url }})
+![]({{ "/assets/chinese_traditional.png" | absolute_url }})
+![]({{ "/assets/french.png" | absolute_url }})
+![]({{ "/assets/italian.png" | absolute_url }})
+![]({{ "/assets/japanese.png" | absolute_url }})
+![]({{ "/assets/korean.png" | absolute_url }})
+![]({{ "/assets/spa.png" | absolute_url }})
+
 ## Summary
 
 With `mnemonicWordLists` it's now easier than ever to generate mnemonics in languages other than english to help spread $BCH all over the EARTH.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  "Paper Wallet Generator"
-date:   2018-03-05
+date:   2018-03-06
 ---
 
 Paper wallets let you print public and private keys as QR codes on to a piece of paper which can be stored offline. They are a very quick and convenient way to store coins safely (as long as the paper doesn't degrade) and are much cheaper than a hardware wallet while maintaining much of the security.

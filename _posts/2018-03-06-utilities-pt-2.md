@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  "Utilities part 2"
-date:   2018-03-05
+date:   2018-03-06
 ---
 
 [HD Wallets](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch05.asciidoc) are at the heart of most Bitcoin Cash apps. Being able to quickly create them can let developers create more exciting $BCH apps quicker than ever. Today we're releasing 7 new utility methods to let you quickly generate mnemonics, root seeds, master private keys, HD wallets and then to sign and verify messages w/ keys from that wallet.

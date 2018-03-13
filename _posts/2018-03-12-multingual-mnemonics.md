@@ -4,7 +4,7 @@ title:  "Mnemonic Word Lists"
 date:   2018-03-12
 ---
 
-Bitcoin Cash is meant for people all over EARTH. Most of those people don't speak english. That's why today we're releasing wordlists so you can generate mnemonics in 8 different languages to help spread $BCH to people all over the planet.
+Bitcoin Cash is meant for people all over EARTH. Most of those people don't speak english. That's why today we're releasing `mnemonicWordLists` so you can generate mnemonics in 8 different languages to help spread $BCH to people all over the planet.
 
 ## `mnemonicWordLists`
 

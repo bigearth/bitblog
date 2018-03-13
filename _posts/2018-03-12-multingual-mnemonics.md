@@ -131,8 +131,8 @@ BITBOX GUI has also been updated to generate mnemonics in all of the above langu
 ### Korean
 ![]({{ "/assets/korean.png" | absolute_url }})
 
-### Spa
-![]({{ "/assets/spa.png" | absolute_url }})
+### Spanish
+![]({{ "/assets/spanish.png" | absolute_url }})
 
 ## Summary
 

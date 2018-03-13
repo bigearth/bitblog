@@ -25,7 +25,7 @@ Bitcoin Cash is meant for people all over EARTH. Most of those people don't spea
 
 Each of these keys contains an array w/ 2048 words in that language. 4 `BITBOX.BitcoinCash` methods now accept that wordlist as their 2nd argument and will create and validate mnemonics in those languages.
 
-The methods which now accepts a `wordslist` argunent are
+The methods which now accepts a `wordslist` argument are
 
 * `generateMnemonic`
 * `entropyToMnemonic`

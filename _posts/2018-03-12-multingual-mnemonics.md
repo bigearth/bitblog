@@ -91,6 +91,6 @@ BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().
 
 ## Summary
 
-With `mnemonicWordLists` it's now easier than ever to generate mnemonics in languages other than english.
+With `mnemonicWordLists` it's now easier than ever to generate mnemonics in languages other than english to help spread $BCH all over the EARTH.
 
 [More info](https://www.bitbox.earth/bitboxcli/bitcoincash)

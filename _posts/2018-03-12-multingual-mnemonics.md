@@ -87,7 +87,7 @@ BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().
 
 `bitbox paper` has also been updated to now accept a `--language` flag which can set the mnemonic to any of the 8 languages listed above. The default is English.
 
-![Korean Paper Wallet]({{ "/assets/paper-korea.png" | absolute_url }})
+![Korean Paper Wallet]({{ "/assets/paper-korean.png" | absolute_url }})
 
 ## Summary
 

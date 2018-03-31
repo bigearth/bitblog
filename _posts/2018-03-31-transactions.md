@@ -45,7 +45,7 @@ txb.addInput(txid, 0);
 // add as many outputs as you wish
 txb.addOutput('bitcoincash:to-address', amount);
 
-// sign w/ HDNode
+// sign w/ node's keyPair
 txb.sign(0, originalAmount);
 
 // build tx

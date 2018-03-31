@@ -60,7 +60,11 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(re
 
 ## Limitations
 
-`TransactionBuilder` currently only supports 1-to-1 or 1-to-many P2PKH SIGHASH_ALL scripts. More advanced scripts such as many to one and P2SH and P2MS are in the works.
+`TransactionBuilder` currently only supports 1-to-1 or 1-to-many P2PKH SIGHASH_ALL scripts. More advanced scripts such as many to one and P2SH/P2MS are in the works.
+
+## Summary
+
+BITBOX now lets you generate entropy, mnemonics, root seeds, HDNodes, transactions and send them to the network. It's now easier than ever to add $BCH functionality to your applications.
 
 ## More Info
 

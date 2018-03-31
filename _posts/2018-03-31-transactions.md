@@ -40,10 +40,7 @@ let txid = 'txid';
 let txb = new BITBOX.TransactionBuilder(keyPair, 'bitcoincash');
 
 // add input
-txb.addInput(
-  txid,
-  0
-);
+txb.addInput(txid, 0);
 
 // add as many outputs as you wish
 txb.addOutput('bitcoincash:to-address', amount);

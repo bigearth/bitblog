@@ -4,7 +4,7 @@ title:  "TransactionBuilder"
 date:   2018-03-31
 ---
 
-The essense of Bitcoin Cash is all about sending and receiving transactions. The ability to move any amount of money to anyone on EARTH for nearly free is truly revolutionary. Today we're very happy to introduce the `TransactionBuilder` class so developers can quickly allow their apps to send $BCH transactions.
+The essense of Bitcoin Cash is all about sending and receiving transactions. The ability to move any amount of money to anyone on EARTH for nearly free is truly revolutionary. Today we're very happy to introduce the `TransactionBuilder` class so developers can quickly send $BCH transactions from their apps.
 
 ## `TransactionBuilder`
 

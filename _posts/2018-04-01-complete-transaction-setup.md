@@ -103,7 +103,7 @@ Great work. You've now installed NodeJS, `npm`, `bitbox-cli`, set up a full $BCH
 
 ## Console
 
-BITBOX ships w/ a custom NodeJS repl that has entire BITBOX API built in. To use it run the following:
+BITBOX ships w/ a custom NodeJS repl that has the entire BITBOX API built in. To use it run the following:
 
 ```
 bitbox console --environment production
@@ -219,7 +219,7 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(re
 // 450d3ce6b70f2f356061f8a2d3ee6a47bbc5b703e7c2452d57f21a6550c2f502
 ```
 
-Note the call to `RawTransactions.sendRawTransaction` does an actual `POST` to the full node whose credentials we added to `bitbox.js`. If all went well we'll get returned a txid. In this case it was successful and we got [450d3ce6b70f2f356061f8a2d3ee6a47bbc5b703e7c2452d57f21a6550c2f502](https://blockchair.com/bitcoin-cash/transaction/450d3ce6b70f2f356061f8a2d3ee6a47bbc5b703e7c2452d57f21a6550c2f502).
+Note the call to `RawTransactions.sendRawTransaction` does an actual `POST` to the full node whose credentials we added to `bitbox.js` and returns a `Promise`. If all went well we'll get returned a txid. In this case it was successful and we got [450d3ce6b70f2f356061f8a2d3ee6a47bbc5b703e7c2452d57f21a6550c2f502](https://blockchair.com/bitcoin-cash/transaction/450d3ce6b70f2f356061f8a2d3ee6a47bbc5b703e7c2452d57f21a6550c2f502).
 
 ## 1-to-many
 
@@ -248,7 +248,7 @@ let txid = 'f48663cfb0502b8dfcb54f616e8f23e19d8a5330b6c677c46bc78b0f2880525e';
 transactionBuilder.addInput(txid, 1, keyPair);
 ```
 
-Now we need to update the call to `getByteCount` to reflect that we're sending to 10 addresses. We also want to do a `for` loop where we derive a sibling of our `changeAddressNode0`. We then get that sibling's cash address and send it 1/10th of our original amount minus the tx fee.
+Now we need to update the call to `getByteCount` to reflect that we're sending to 10 addresses. We also want to do a `for` loop where we derive siblings of `changeAddressNode0`. We then get each sibling's cash address and send it 1/10th of our original amount minus the tx fee.
 
 ```js
 // get byte count to calculate fee. paying 1 sat/byte
@@ -313,7 +313,7 @@ let amount = originalAmount - byteCount;
 transactionBuilder.addOutput('bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw', amount);
 ```
 
-Next we need to do another `for` loop but this time we're going to derive the `i`th sibling HDNode which we sent the satoshis to in the 1-to-many tx.
+Next we need to do another `for` loop and derive the `i`th sibling HDNode which we sent the satoshis to in the 1-to-many tx.
 
 We have to finish adding all the inputs before we can sign the tx which is why we have two successive `for` loops.
 

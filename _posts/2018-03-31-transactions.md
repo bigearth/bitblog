@@ -13,43 +13,43 @@ The essense of Bitcoin Cash is all about sending and receiving transactions. The
 let mnemonic = 'your mnemonic';
 
 // root seed buffer
-let seed = BITBOX.Mnemonic.mnemonicToSeedBuffer(mnemonic);
+let rootSeedBuffer = BITBOX.Mnemonic.mnemonicToSeedBuffer(mnemonic);
 
 // master HDNode
-let master = BITBOX.HDNode.fromSeedBuffer(seed, 'bitcoincash');
+let masterHDNode = BITBOX.HDNode.fromSeedBuffer(rootSeedBuffer, 'bitcoincash');
 
 // get byte count to calculate fee. paying 1 sat/byte
 let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
 
 // node of address which is going to spend utxo
-let node = master.derivePath(`m/44'/145'/0'/0/0`);
+let bip44BCHAccount0 = masterHDNode.derivePath(`m/44'/145'/0'/0/0`);
 
 // keypair
-let keyPair = node.keyPair;
+let keyPair = bip44BCHAccount0.keyPair;
 
 // amount of satoshis in vin
 let originalAmount = 14438;
 
 // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
-let amount = originalAmount - byteCount;
+let sendAmount = originalAmount - byteCount;
 
 // txid of vin
 let txid = 'txid';
 
 // instance of transaction builder
-let txb = new BITBOX.TransactionBuilder(keyPair, 'bitcoincash');
+let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
 
-// add input
-txb.addInput(txid, 0);
+// add as many inputs as you wish
+transactionBuilder.addInput(txid, 0, keyPair);
 
 // add as many outputs as you wish
-txb.addOutput('bitcoincash:to-address', amount);
+transactionBuilder.addOutput('bitcoincash:to-address', sendAmount);
 
-// sign w/ node's keyPair
-txb.sign(0, originalAmount);
+// sign each vin
+transactionBuilder.sign(0, originalAmount);
 
 // build tx
-let tx = txb.build();
+let tx = transactionBuilder.build();
 
 // output rawhex
 let hex = tx.toHex();
@@ -60,7 +60,7 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(re
 
 ## Limitations
 
-`TransactionBuilder` currently only supports 1-to-1 or 1-to-many P2PKH SIGHASH_ALL scripts. More advanced scripts such as many to one and P2SH/P2MS are in the works.
+`TransactionBuilder` currently only supports 1-to-1, 1-to-many and many-to-1 P2PKH SIGHASH_ALL scripts. More advanced scripts such as P2SH/P2MS are in the works.
 
 ## Summary
 

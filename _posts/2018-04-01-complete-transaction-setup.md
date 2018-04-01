@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "Complete setup"
+title:  "Complete transaction setup"
 date:   2018-04-01
 ---
 

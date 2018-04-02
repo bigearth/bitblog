@@ -8,9 +8,7 @@ Pssst. You want mnemonics? Oh yea we got mnemonics. We got all kinds of mnemonic
 
 Mnemonics are human readable phrases which can be used to create Bitcoin Cash keypairs for signing transactions, for generating addresses and for signing/verifying messages. Mnemonics can be created from sources of randomness and are much more secure than having a user think of a phrase or password.
 
-BITBOX offers a `Mnemonic` class w/ a suite of methods for generating and validating [BIP39 mnemonics](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) in 8 languages including English, Chinese (traditional/simplified), Korean, Japanese, Spanish, Italian and French.
-
-BITBOX GUI also affers the full range of functionality offered by `Mnemonic` to make it easy for non developers to deal w/ $BCH mnemonics. Let's dig in.
+BITBOX offers a `Mnemonic` class w/ a suite of methods for generating and validating [BIP39 mnemonics](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) in 8 languages including English, Chinese (traditional/simplified), Korean, Japanese, Spanish, Italian and French. Let's dig in.
 
 ## Generating mnemonics
 

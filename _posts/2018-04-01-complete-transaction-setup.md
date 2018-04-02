@@ -46,7 +46,7 @@ bitbox new --title myApp
 
 Creating myApp/ directory
 Creating src/ directory: ./myApp/src
-Creating test/ directory: ./myApp/tests
+Creating tests/ directory: ./myApp/tests
 Creating bitbox.js configuration file
 All done. ✅
 Go get em! Remember--with great power comes great responsibility. 🚀

@@ -10,13 +10,21 @@ So you want to send $BCH transactions? Worthy goal. Follow this guide and soon t
 
 First things first. You're gonna need BITBOX. For that you'll need NodeJS and `npm`.
 
-### NodeJS
+### NodeJS and npm
 
-NodeJS is a javascript runtime build on Chrome's V8 engine. Install it from [their homepage](https://nodejs.org).
+NodeJS is a javascript runtime build on Chrome's V8 engine. `npm` is the package manager for NodeJS. Install them both via [nvm](https://github.com/creationix/nvm).
 
-### npm
+You can install `nvm` via:
 
-`npm` is the package manager for NodeJS. Also install it from [it's homepage](https://www.npmjs.com).
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+```
+
+Once `nvm` is installed you can have it install NodeJS v9.4.0 which will come w/ npm v5.6.0.
+
+```
+nvm install 9.4.0
+```
 
 ### BITBOX
 

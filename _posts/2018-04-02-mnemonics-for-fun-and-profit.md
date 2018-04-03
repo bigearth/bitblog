@@ -14,7 +14,7 @@ In the BIP32 wiki there is a picture an HD wallet. This post is to show which BI
 
 Generating randomness
 
-* [BITBOX.Crypto.randomBytes](https://www.bitbox.earth/bitboxcli/crypto#randomBytesl)
+* [BITBOX.Crypto.randomBytes](https://www.bitbox.earth/bitboxcli/crypto#randomBytes)
 
 ## Mnemonic
 

@@ -18,7 +18,7 @@ If you've taken time to download BITBOX or you've sent a [$BCH donation](https:/
 
 If you're building something w/ BITBOX or if you just want to connect there is a [slack channel](https://bitboxearth.slack.com/). Contact me [on twitter](https://twitter.com/cgcardona) and I'll send you an invite. I want to do everything I can to help on-ramp developers to BITBOX.
 
-Today I'm releasing `bitbox-cli` v0.6.0 w/ a completely refactored `Crypto` class and a bunch of additions to already powerful `HDNode` class.
+Today I'm releasing `bitbox-cli` v0.6.0 w/ a completely refactored `Crypto` class and a bunch of additions to an already powerful `HDNode` class.
 
 ## Crypto
 

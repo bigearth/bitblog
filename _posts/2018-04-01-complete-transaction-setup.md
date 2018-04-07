@@ -141,9 +141,9 @@ We'll be deriving the first hardened account or `m / 44' / 145' / 0'` and we'll 
 
 ```js
 // root seed buffer
-let rootSeedBuffer = BITBOX.Mnemonic.mnemonicToSeedBuffer(mnemonic);
+let rootSeed = BITBOX.Mnemonic.mnemonicToSeed(mnemonic);
 // master HDNode
-let masterHDNode = BITBOX.HDNode.fromSeedBuffer(rootSeedBuffer, 'bitcoincash');
+let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash');
 // HDNode of BIP44 account
 let bip44BCHAccount0 = masterHDNode.derivePath("m/44'/145'/0'");
 // derive the first external change address HDNode which is going to spend utxo
@@ -231,9 +231,9 @@ In our example we're going to send from 1-to-10. Close your BITBOX console via c
 // mnemonic
 let mnemonic = 'fresh base moral lunch jacket later shallow verify coffee answer gospel memory lawn economy cover legal slam help giggle enroll basic series essay during';
 // root seed buffer
-let rootSeedBuffer = BITBOX.Mnemonic.mnemonicToSeedBuffer(mnemonic);
+let rootSeed = BITBOX.Mnemonic.mnemonicToSeed(mnemonic);
 // master HDNode
-let masterHDNode = BITBOX.HDNode.fromSeedBuffer(rootSeedBuffer, 'bitcoincash');
+let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash');
 // HDNode of BIP44 account
 let bip44BCHAccount0 = masterHDNode.derivePath("m/44'/145'/0'");
 // derive the first external change address HDNode which is going to spend utxo
@@ -284,13 +284,13 @@ Finally we want to consolidate the 10 newly created utxo from the previous step 
 // mnemonic
 let mnemonic = 'fresh base moral lunch jacket later shallow verify coffee answer gospel memory lawn economy cover legal slam help giggle enroll basic series essay during';
 // root seed buffer
-let rootSeedBuffer = BITBOX.Mnemonic.mnemonicToSeedBuffer(mnemonic);
+let rootSeed = BITBOX.Mnemonic.mnemonicToSeed(mnemonic);
 // master HDNode
-let masterHDNode = BITBOX.HDNode.fromSeedBuffer(rootSeedBuffer, 'bitcoincash');
+let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash');
 // HDNode of BIP44 account
-let bip44BCHAccount0 = masterHDNode.derivePath("m/44'/145'/0'");
+let bip44BCHAccount0 = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'");
 // derive the first external change address HDNode which is going to spend utxo
-let changeAddressNode0 = bip44BCHAccount0.derivePath("0/0");
+let changeAddressNode0 = BITBOX.HDNode.derivePath(bip44BCHAccount0, "0/0");
 // instance of transaction builder
 let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
 // keypair
@@ -320,7 +320,7 @@ We have to finish adding all the inputs before we can sign the tx which is why w
 ```js
 // add input with txid and index of vin
 for(let i = 0; i < 10; i++) {
-  let node = masterHDNode.derivePath(`m/44'/145'/0'/0/${i+1}`);
+  let node = BITBOX.HDNode.derivePath(masterHDNode, `m/44'/145'/0'/0/${i+1}`);
   let keyPair = node.keyPair;
   transactionBuilder.addInput(txid, i, keyPair);
 }

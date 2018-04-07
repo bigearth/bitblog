@@ -98,38 +98,33 @@ For this demonstration we'll use `BITBOX.Crypto.randomBytes` to get our entropy 
 
 ```js
 // create 16 bytes of entropy
-let entropy1 = BITBOX.Crypto.randomBytes(16);
-// 549ef25e358069775e3c4c6ba9652b6f
+let entropy = BITBOX.Crypto.randomBytes(16);
 // create 12 english word mnemonic
-BITBOX.Mnemonic.entropyToMnemonic(entropy1)
+BITBOX.Mnemonic.entropyToMnemonic(entropy)
 // fee wasp nurse help alley roof jump maze hill enroll enlist teach
 
 // create 20 bytes of entropy
-let entropy2 = BITBOX.Crypto.randomBytes(20);
-// 9d115d4d172dca804052a79dc5f18dedf97a3eff
+let entropy = BITBOX.Crypto.randomBytes(20);
 // create chinese traditional mnemonic from 20 bytes of entropy
-BITBOX.Mnemonic.entropyToMnemonic(entropy2, BITBOX.Mnemonic.mnemonicWordLists().chinese_traditional)
+BITBOX.Mnemonic.entropyToMnemonic(entropy, BITBOX.Mnemonic.mnemonicWordLists().chinese_traditional)
 // 閃 索 衝 研 腔 顯 中 控 牆 織 劉 桃 婚 戰 沫
 
 // create 24 bytes of entropy
-let entropy3 = BITBOX.Crypto.randomBytes(24);
-// b842e25d09c53d8a469db2a1a6f1a19f58b8c9f9b52feb89
+let entropy = BITBOX.Crypto.randomBytes(24);
 // create 18 french word mnemonic
-BITBOX.Mnemonic.entropyToMnemonic(entropy3, BITBOX.Mnemonic.mnemonicWordLists().french)
+BITBOX.Mnemonic.entropyToMnemonic(entropy, BITBOX.Mnemonic.mnemonicWordLists().french)
 // phoque aviser matière asticot enfance pyramide bastion pépite myrtille copain flamme débattre lanterne fendoir tailler nomade tiroir école
 
 // create 28 bytes of entropy
 let entropy4 = BITBOX.Crypto.randomBytes(28);
-// 8162362d2574b8b8fb13de1e4514f0d7873d142fde27af55c5d1e14e
 // create korean mnemonic from 28 bytes of entropy
-BITBOX.Mnemonic.entropyToMnemonic(entropy4, BITBOX.Mnemonic.mnemonicWordLists().korean)
+BITBOX.Mnemonic.entropyToMnemonic(entropy, BITBOX.Mnemonic.mnemonicWordLists().korean)
 // 쌍둥이 공원 엉망 방법 방지 빗방울 하늘 식료품 금년 논리 명칭 입학 수화기 언어 제공 주문 자격 입력 순서 조직 통역
 
 // create 32 bytes of entropy
-let entropy5 = BITBOX.Crypto.randomBytes(32);
-// d2782eaa3041896d57df535c51a2d5e548094ac23b83b6ae221661377bd815b5
+let entropy = BITBOX.Crypto.randomBytes(32);
 // create japanese mnemonic from 32 bytes of entropy
-BITBOX.Mnemonic.entropyToMnemonic(entropy5, BITBOX.Mnemonic.mnemonicWordLists().japanese)
+BITBOX.Mnemonic.entropyToMnemonic(entropy, BITBOX.Mnemonic.mnemonicWordLists().japanese)
 // ふうふ　ばかり　ともだち　さんせい　うりあげ　ぬんちゃく　さわやか　むりょう　さつたば　だむる　にんよう　ひこく　そとづら　とうきゅう　いさん　すてる　ぬんちゃく　ずひょう　たいちょう　ばしょ　せぼね　めぐまれる　こんすい　にいがた
 ```
 
@@ -140,29 +135,15 @@ BITBOX.Mnemonic.entropyToMnemonic(entropy5, BITBOX.Mnemonic.mnemonicWordLists().
 Since mnemonics are created from entropy it make sense that we could turn a mnemonic back to entropy. That's what `mnemonicToEntropy` is for.
 
 ```js
-let entropy0 = '549ef25e358069775e3c4c6ba9652b6f';
-let mnemonic0 = BITBOX.Mnemonic.entropyToMnemonic(entropy0);
-BITBOX.Mnemonic.mnemonicToEntropy(mnemonic0)
-// 549ef25e358069775e3c4c6ba9652b6f
+let entropy = '549ef25e358069775e3c4c6ba9652b6f';
+let mnemonic = BITBOX.Mnemonic.entropyToMnemonic(Buffer.from(entropy, 'hex'));
+BITBOX.Mnemonic.mnemonicToEntropy(mnemonic)
+// <Buffer 54 9e f2 5e 35 80 69 77 5e 3c 4c 6b a9 65 2b 6f>
 
-let entropy1 = '9d115d4d172dca804052a79dc5f18dedf97a3eff';
-let mnemonic1 = BITBOX.Mnemonic.entropyToMnemonic(entropy1);
-BITBOX.Mnemonic.mnemonicToEntropy(mnemonic1)
-
-let entropy2 = 'b842e25d09c53d8a469db2a1a6f1a19f58b8c9f9b52feb89';
-let mnemonic2 = BITBOX.Mnemonic.entropyToMnemonic(entropy2);
-BITBOX.Mnemonic.mnemonicToEntropy(mnemonic2)
-// b842e25d09c53d8a469db2a1a6f1a19f58b8c9f9b52feb89
-
-let entropy3 = '8162362d2574b8b8fb13de1e4514f0d7873d142fde27af55c5d1e14e';
-let mnemonic3 = BITBOX.Mnemonic.entropyToMnemonic(entropy3);
-BITBOX.Mnemonic.mnemonicToEntropy(mnemonic3)
-// 8162362d2574b8b8fb13de1e4514f0d7873d142fde27af55c5d1e14e
-
-let entropy4 = 'd2782eaa3041896d57df535c51a2d5e548094ac23b83b6ae221661377bd815b5';
-let mnemonic4 = BITBOX.Mnemonic.entropyToMnemonic(entropy4);
-BITBOX.Mnemonic.mnemonicToEntropy(mnemonic4)
-// d2782eaa3041896d57df535c51a2d5e548094ac23b83b6ae221661377bd815b5
+let entropy = '9d115d4d172dca804052a79dc5f18dedf97a3eff';
+let mnemonic = BITBOX.Mnemonic.entropyToMnemonic(Buffer.from(entropy, 'hex'));
+BITBOX.Mnemonic.mnemonicToEntropy(mnemonic)
+// <Buffer 9d 11 5d 4d 17 2d ca 80 40 52 a7 9d c5 f1 8d ed f9 7a 3e ff>
 ```
 
 [More info on entropyToMnemonic](https://www.bitbox.earth/bitboxcli/mnemonic#mnemonicToEntropy)

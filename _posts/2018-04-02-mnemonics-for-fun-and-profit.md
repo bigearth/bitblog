@@ -228,61 +228,33 @@ BITBOX.Mnemonic.findNearestWord(word, wordlist);
 
 [More info on findNearestWord](https://www.bitbox.earth/bitboxcli/mnemonic#findNearestWord)
 
-## mnemonicToSeedHex
+## mnemonicToSeed
 
-Mnemonics can be turned in to [root seeds](https://bitcoin.org/en/developer-guide#hierarchical-deterministic-key-creation) which can then be turned in to HDNodes to generate keypairs and addresses. BITBOX offers two ways to turn mnemonics to seeds. The 1st way is to turn a mnemonic to a seed encoded as hex w/ `mnemonicToSeedHex` which takes as a 1st argument the mnemonic and as an optional 2nd argument a passphrase.
-
-```js
-// english mnemonic to root seed encoded as hex
-BITBOX.Mnemonic.mnemonicToSeedHex('boil lonely casino manage habit where total glory muffin name limit mansion', '');
-// e906236ab5ebec8fbff9948807a6f5d2aa6f35e8bcbcda99e22f9048323cdc0755b781782ee1cce40007bcf900593ed2667e6e9800d734fa46a8f7f51ec74818
-
-// japanese mnemonic to root seed encoded as hex
-BITBOX.Mnemonic.mnemonicToSeedHex('먹이 비극 이튿날 여건 타자기 시간 캠페인 여고생 세미나 중단 제한 글자', '');
-// ae74b7bc43120fbfb6a76bec970eee94806b81b6ce4ab48be25c2c0e1c9683a36d4dbcdbde30b622a6cb9735f63abc6a7e35334723dba3d8737983235c84df38
-
-// italian mnemonic to root seed encoded as hex
-BITBOX.Mnemonic.mnemonicToSeedHex('ginepro erigere sgonfiare mugnaio aria rilassato scatenare derapata avvenire stelo governo sbruffone emanato mini misurare cadetto festivo flamenco', '')
-// 389a60b6f2a229f27d609b0d770ada9caf3dfc268e12a4affab386b91f7e59576581ae34ee6d29caf34721b5d44d1b9a3f5b993befa575cbdd62d16b33e5534a
-
-// chinese simplified mnemonic to root seed encoded as hex
-BITBOX.Mnemonic.mnemonicToSeedHex('烈 珠 据 牙 蔡 米 津 熔 贺 祖 逃 怎 鲁 穿 胡 听 近 杯', '')
-// e1483c898fd53a4db5408e175d42c650d7baa1678ac43ab9f16f3658aea55393fddd7d46c6f8253425b6363fbf54ce9db7720152b57ec686e9695a30ac8d4449
-
-// french mnemonic to root seed encoded as hex
-BITBOX.Mnemonic.mnemonicToSeedHex('incarner pulpe libre acclamer vernir vorace obstacle saluer rocheux officier pinceau ossature pivoter ennuyeux fatal sénateur phrase poney', '')
-// 0d8a772a9203a1bba96a09490ed2fd1784fcdae7209df2cb1aa31f6aea6f6ff9ac04dd8681f366c49aa96f71e8728952e7c3b56df49d47451bb508dad150d699
-```
-
-[More info on mnemonicToSeedHex](https://www.bitbox.earth/bitboxcli/mnemonic#mnemonicToSeedHex)
-
-## mnemonicToSeedBuffer
-
-Another way of turning a mnemonic to a root seed is as a [buffer](https://nodejs.org/api/buffer.html) w/ `mnemonicToSeedBuffer`.
+Another way of turning a mnemonic to a root seed is as a [buffer](https://nodejs.org/api/buffer.html) w/ `mnemonicToSeed`.
 
 ```js
 // english mnemonic to root seed buffer
-BITBOX.Mnemonic.mnemonicToSeedBuffer('boil lonely casino manage habit where total glory muffin name limit mansion', '');
+BITBOX.Mnemonic.mnemonicToSeed('boil lonely casino manage habit where total glory muffin name limit mansion', '');
 // <Buffer e9 06 23 6a b5 eb ec 8f bf f9 94 88 07 a6 f5 d2 aa 6f 35 e8 bc bc da 99 e2 2f 90 48 32 3c dc 07 55 b7 81 78 2e e1 cc e4 00 07 bc f9 00 59 3e d2 66 7e ... >
 
 // japanese mnemonic to root seed buffer
-BITBOX.Mnemonic.mnemonicToSeedBuffer('먹이 비극 이튿날 여건 타자기 시간 캠페인 여고생 세미나 중단 제한 글자', '');
+BITBOX.Mnemonic.mnemonicToSeed('먹이 비극 이튿날 여건 타자기 시간 캠페인 여고생 세미나 중단 제한 글자', '');
 // <Buffer ae 74 b7 bc 43 12 0f bf b6 a7 6b ec 97 0e ee 94 80 6b 81 b6 ce 4a b4 8b e2 5c 2c 0e 1c 96 83 a3 6d 4d bc db de 30 b6 22 a6 cb 97 35 f6 3a bc 6a 7e 35 ... >
 
 // italian mnemonic to root seed buffer
-BITBOX.Mnemonic.mnemonicToSeedBuffer('ginepro erigere sgonfiare mugnaio aria rilassato scatenare derapata avvenire stelo governo sbruffone emanato mini misurare cadetto festivo flamenco', '')
+BITBOX.Mnemonic.mnemonicToSeed('ginepro erigere sgonfiare mugnaio aria rilassato scatenare derapata avvenire stelo governo sbruffone emanato mini misurare cadetto festivo flamenco', '')
 // <Buffer 38 9a 60 b6 f2 a2 29 f2 7d 60 9b 0d 77 0a da 9c af 3d fc 26 8e 12 a4 af fa b3 86 b9 1f 7e 59 57 65 81 ae 34 ee 6d 29 ca f3 47 21 b5 d4 4d 1b 9a 3f 5b ... >
 
 // chinese simplified mnemonic to root seed buffer
-BITBOX.Mnemonic.mnemonicToSeedBuffer('烈 珠 据 牙 蔡 米 津 熔 贺 祖 逃 怎 鲁 穿 胡 听 近 杯', '')
+BITBOX.Mnemonic.mnemonicToSeed('烈 珠 据 牙 蔡 米 津 熔 贺 祖 逃 怎 鲁 穿 胡 听 近 杯', '')
 // <Buffer e1 48 3c 89 8f d5 3a 4d b5 40 8e 17 5d 42 c6 50 d7 ba a1 67 8a c4 3a b9 f1 6f 36 58 ae a5 53 93 fd dd 7d 46 c6 f8 25 34 25 b6 36 3f bf 54 ce 9d b7 72 ... >
 
 // french mnemonic to root seed buffer
-BITBOX.Mnemonic.mnemonicToSeedBuffer('incarner pulpe libre acclamer vernir vorace obstacle saluer rocheux officier pinceau ossature pivoter ennuyeux fatal sénateur phrase poney', '')
+BITBOX.Mnemonic.mnemonicToSeed('incarner pulpe libre acclamer vernir vorace obstacle saluer rocheux officier pinceau ossature pivoter ennuyeux fatal sénateur phrase poney', '')
 // <Buffer 0d 8a 77 2a 92 03 a1 bb a9 6a 09 49 0e d2 fd 17 84 fc da e7 20 9d f2 cb 1a a3 1f 6a ea 6f 6f f9 ac 04 dd 86 81 f3 66 c4 9a a9 6f 71 e8 72 89 52 e7 c3 ... >
 ```
 
-[More info on mnemonicToSeedBuffer](https://www.bitbox.earth/bitboxcli/mnemonic#mnemonicToSeedBuffer)
+[More info on mnemonicToSeed](https://www.bitbox.earth/bitboxcli/mnemonic#mnemonicToSeed)
 
 ## keypairsFromMnemonic
 

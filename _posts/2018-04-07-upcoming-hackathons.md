@@ -16,13 +16,13 @@ This 1st hackathon is intended to get people familiar w/ BITBOX. It will be prim
 
 ### Prize address
 
-[bitcoincash:qz6dp4edunclr6wrnvghxxkx7mxty3uwevlp33zreq](https://blockchair.com/bitcoin-cash/address/qz6dp4edunclr6wrnvghxxkx7mxty3uwevlp33zreq)
+[bitcoincash:qrj2dup4s72fzh7rfk60vmqkevj34uc455leqf8ttx](https://blockchair.com/bitcoin-cash/address/qrj2dup4s72fzh7rfk60vmqkevj34uc455leqf8ttx)
 
 #### Signed message
 
 ##### Address
 
-1HV4p2SdoU6tgqUZdgqDXFCVDauN2JHzaQ
+bitcoincash:qrj2dup4s72fzh7rfk60vmqkevj34uc455leqf8ttx
 
 ##### Message
 
@@ -30,20 +30,20 @@ For April 21st 2018 BITBOX hackathon. 50% for 1st place. 25% for 2nd place. 12.5
 
 ##### Signature
 
-IANFzXw5sOxFm4gFMpqbratObK9vj16eMsxj3lbBJ7DgQjJghzRl5XDb41aR71iRvWNqw4HJKDjfZq4DkbhQGIE=
+ILAjTVkJP+xPioxuXSSXoO38LAKx5wDGQzwPoNDtr0z2fiVhHZhBOrXPtWpozSz3UlSBmIodDUNC0kcRiUkwZMI=
 
 ## Tue May 15th
 
 This 2nd hackathon is scheduled to coincide w/ the $BCH network upgrade. This hackathon will be focused on all the cool stuff we can build w/
 the new OP codes and larger block limit.
 
-[bitcoincash:qzjtyptauzpzvge8y7ayaafcqzhj06tasg67fr6d67](https://blockchair.com/bitcoin-cash/address/qzjtyptauzpzvge8y7ayaafcqzhj06tasg67fr6d67)
+[bitcoincash:qz7lane6hv59rwuv6drp5zq5gdszxdep6qgspkedgx](https://blockchair.com/bitcoin-cash/address/qz7lane6hv59rwuv6drp5zq5gdszxdep6qgspkedgx)
 
 #### Signed message
 
 ##### Address
 
-1G1q5cEh5Z8SjLTfmxyPRTcXuaEGY4vPw7
+bitcoincash:qz7lane6hv59rwuv6drp5zq5gdszxdep6qgspkedgx
 
 ##### Message
 
@@ -51,4 +51,4 @@ For May 15th 2018 BITBOX hackathon. 50% for 1st place. 25% for 2nd place. 12.5% 
 
 ##### Signature
 
-IP+r4fIYHd2jbhbiqKXq2twP+nQBljUPeiTQHgCi4QcGDaBK8RZWeF9wA2Y76XB/mIgglmx8/Rmsa8aj9bh3IYQ=
+IKZVAFrD4WogNf/uUADtrED3r2cDRciigHJkuy2byQZ3YeNrEj8g1QRRBkiAHlUZkfDaEYN8QdwOQO2C5kl33Zo=

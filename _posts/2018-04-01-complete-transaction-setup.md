@@ -12,7 +12,7 @@ First things first. You're gonna need BITBOX. For that you'll need NodeJS and `n
 
 ### NodeJS and npm
 
-[NodeJS](https://nodejs.org) is a javascript runtime build on Chrome's V8 engine. [npm](https://www.npmjs.com) is the package manager for NodeJS. Both can be installed via `nvm` the [node version manager](https://github.com/creationix/nvm).
+[NodeJS](https://nodejs.org) is a javascript runtime built on Chrome's V8 engine. [npm](https://www.npmjs.com) is the package manager for NodeJS. Both can be installed via `nvm` the [node version manager](https://github.com/creationix/nvm).
 
 Install `nvm` w/
 
@@ -119,7 +119,7 @@ BITBOX ships w/ a custom NodeJS repl that has the entire BITBOX API built in. To
 
 ```
 bitbox console --environment production
-> BITBOX.Mnemonic.generateMnemonic(256);
+> BITBOX.Mnemonic.generate(256);
 // fresh base moral lunch jacket later shallow verify coffee answer gospel memory lawn economy cover legal slam help giggle enroll basic series essay during
 
 > BITBOX.BitcoinCash.toSatoshi(9);
@@ -153,7 +153,7 @@ We'll be deriving the first hardened account or `m / 44' / 145' / 0'` and we'll 
 
 ```js
 // root seed buffer
-let rootSeed = BITBOX.Mnemonic.mnemonicToSeed(mnemonic);
+let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic);
 
 // master HDNode
 let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash');
@@ -226,7 +226,7 @@ Our transaction is almost ready to roll. Now we need to sign and build it. Then 
 
 ```js
 // keypair
-let keyPair = changeAddressNode0.keyPair;
+let keyPair = BITBOX.HDNode.toKeyPair(changeAddressNode0);
 // sign w/ HDNode
 transactionBuilder.sign(0, keyPair);
 // build tx
@@ -286,7 +286,7 @@ for(let i = 0; i < 5; i++) {
 }
 
 // keypair
-let keyPair = changeAddressNode0.keyPair;
+let keyPair = BITBOX.HDNode.toKeyPair(changeAddressNode0);
 
 // sign w/ HDNode's keyPair
 transactionBuilder.sign(0, keyPair);
@@ -347,7 +347,7 @@ for(let i = 5; i < 10; i++) {
 for(let i = 0; i < 5; i++) {
   // sign w/ HDNode's keyPair
   let childNode = BITBOX.HDNode.derivePath(bip44BCHAccount, `0/${i+1}`);
-  transactionBuilder.sign(i, childNode.keyPair);
+  transactionBuilder.sign(i, BITBOX.HDNode.toKeyPair(childNode));
 }
 
 // build tx
@@ -406,7 +406,7 @@ for(let i = 0; i < 5; i++) {
 for(let i = 5; i < 10; i++) {
   // sign w/ HDNode's keypair
   let node = BITBOX.HDNode.derivePath(bip44BCHAccount, `0/${i+1}`);
-  let keyPair = node.keyPair;
+  let keyPair = BITBOX.HDNode.toKeyPair(node);
 
   transactionBuilder.sign(i-5, keyPair);
 }
@@ -474,7 +474,8 @@ let xpriv = 'xprv9ycRUKofpapUBBdkNbBrLAZodKr4Q7LhgmcLppwS7yicaGuEQ9egswHEsgJj8sj
 let node = BITBOX.HDNode.fromXPriv(xpriv);
 
 // first external change address node
-let key = BITBOX.HDNode.derivePath(node, `0/0`).keyPair;
+let childNode = BITBOX.HDNode.derivePath(node, `0/0`);
+let key = BITBOX.HDNode.toKeyPair(childNode);
 
 // sign tx
 transactionBuilder.sign(0, key)

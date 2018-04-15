@@ -204,7 +204,7 @@ let originalAmount = 75827;
 // txid of vin
 let txid = 'bb2dff2544db7908cec8a41d9003a17f2c02814aa13095448e4bb31b283f5844';
 // add input with txid and index of vout
-transactionBuilder.addInput(txid, 0, originalAmount);
+transactionBuilder.addInput(txid, 0);
 ```
 
 ### `addOutput`
@@ -228,7 +228,8 @@ Our transaction is almost ready to roll. Now we need to sign and build it. Then 
 // keypair
 let keyPair = BITBOX.HDNode.toKeyPair(changeAddressNode0);
 // sign w/ HDNode
-transactionBuilder.sign(0, keyPair);
+let redeemScript;
+transactionBuilder.sign(0, keyPair, redeemScript, transactionsBuilder.hashTypes.SIGHASH_ALL, originalAmount);
 // build tx
 let tx = transactionBuilder.build();
 // output rawhex
@@ -266,7 +267,7 @@ let txid = 'c2aa3c36c77c836f99b73210994d86067db49977920a0e49e04041bac137923d';
 let originalAmount = 15221;
 
 // add input with txid and index of vin
-transactionBuilder.addInput(txid, 0, originalAmount);
+transactionBuilder.addInput(txid, 0);
 ```
 
 Now we need to update the call to `getByteCount` to reflect that we're sending to 5 addresses. We also want to do a `for` loop where we derive siblings of `changeAddressNode0`. We then get each sibling's cash address and send it 1/5th of our original amount minus the tx fee.
@@ -289,7 +290,8 @@ for(let i = 0; i < 5; i++) {
 let keyPair = BITBOX.HDNode.toKeyPair(changeAddressNode0);
 
 // sign w/ HDNode's keyPair
-transactionBuilder.sign(0, keyPair);
+let redeemScript;
+transactionBuilder.sign(0, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount);
 
 // build tx
 let tx = transactionBuilder.build();
@@ -322,7 +324,7 @@ let txid = '72eb365f0f8d692edb5aa8b0d32948c21a80938b8f2870b68a5d58cefdabd513';
 
 // add input with txid and index of vin
 for(let i = 0; i < 5; i++) {
-  transactionBuilder.addInput(txid, i, 2978);
+  transactionBuilder.addInput(txid, i);
 }
 
 let originalAmount = 14890;
@@ -344,10 +346,11 @@ for(let i = 5; i < 10; i++) {
   transactionBuilder.addOutput(cashAddress, Math.floor(sendAmount / 5));
 }
 
+let redeemScript;
 for(let i = 0; i < 5; i++) {
   // sign w/ HDNode's keyPair
   let childNode = BITBOX.HDNode.derivePath(bip44BCHAccount, `0/${i+1}`);
-  transactionBuilder.sign(i, BITBOX.HDNode.toKeyPair(childNode));
+  transactionBuilder.sign(i, BITBOX.HDNode.toKeyPair(childNode), redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, 2978);
 }
 
 // build tx
@@ -400,15 +403,16 @@ We have to finish adding all the inputs before we can sign the tx which is why w
 ```js
 // add input with txid and index of vin
 for(let i = 0; i < 5; i++) {
-  transactionBuilder.addInput(txid, i, vinAmount);
+  transactionBuilder.addInput(txid, i);
 }
 
+let redeemScript;
 for(let i = 5; i < 10; i++) {
   // sign w/ HDNode's keypair
   let node = BITBOX.HDNode.derivePath(bip44BCHAccount, `0/${i+1}`);
   let keyPair = BITBOX.HDNode.toKeyPair(node);
 
-  transactionBuilder.sign(i-5, keyPair);
+  transactionBuilder.sign(i-5, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, vinAmount);
 }
 ```
 
@@ -444,7 +448,7 @@ let originalAmount = 7651;
 let txid = "40e974d91a269b333adcb6d3ca7ac871681262ab84170b7e741141193013bad0";
 
 // add input txid, vout index and amount of satoshis
-transactionBuilder.addInput(txid, 1, originalAmount)
+transactionBuilder.addInput(txid, 1)
 
 // encode #BCHForEveryone as a buffer
 let buf = new Buffer('#BCHForEveryone');
@@ -477,8 +481,9 @@ let node = BITBOX.HDNode.fromXPriv(xpriv);
 let childNode = BITBOX.HDNode.derivePath(node, `0/0`);
 let key = BITBOX.HDNode.toKeyPair(childNode);
 
+let redeemScript;
 // sign tx
-transactionBuilder.sign(0, key)
+transactionBuilder.sign(0, key, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount)
 
 // to raw hex
 let hex = transactionBuilder.build().toHex()

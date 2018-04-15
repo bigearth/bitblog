@@ -16,27 +16,27 @@ BITBOX can encode `OP_RETURN` scripts so I decided to write some helper methods 
 ```js
 let setName = (name) => {
   let script = [BITBOX.Script.opcodes.OP_RETURN, Buffer.from('6d01', 'hex'), Buffer.from(name)];
-  return BITBOX.Script.compile(script)
+  return BITBOX.Script.encode(script)
 }
 
 let postMemo = (memo) => {
   let script = [BITBOX.Script.opcodes.OP_RETURN, Buffer.from('6d02', 'hex'), Buffer.from(memo)];
-  return BITBOX.Script.compile(script)
+  return BITBOX.Script.encode(script)
 }
 
 let like = (txHash) => {
   let script = [BITBOX.Script.opcodes.OP_RETURN, Buffer.from('6d04', 'hex'), Buffer.from(txHash)];
-  return BITBOX.Script.compile(script)
+  return BITBOX.Script.encode(script)
 }
 
 let follow = (address) => {
   let script = [BITBOX.Script.opcodes.OP_RETURN, Buffer.from('6d06', 'hex'), Buffer.from(address)];
-  return BITBOX.Script.compile(script)
+  return BITBOX.Script.encode(script)
 }
 
 let unfollow = (address) => {
   let script = [BITBOX.Script.opcodes.OP_RETURN, Buffer.from('6d07', 'hex'), Buffer.from(address)];
-  return BITBOX.Script.compile(script)
+  return BITBOX.Script.encode(script)
 }
 ```
 

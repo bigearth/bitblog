@@ -4,7 +4,7 @@ title:  "MemoBCH Utility Methods"
 date:   2018-04-15
 ---
 
-The pace of innovation in the Bitcoin Cash space is truly amazing. Each week we see new services launch which truly show the strength of the Blockchain. Yesterday [MemoBCH](https://memo.cash/) launched which is a "Decentralized on-chain social network built on Bitcoin Cash."
+The pace of innovation in the Bitcoin Cash space is truly amazing. Each week we see new services launch which truly show the strength of the Blockchain. Yesterday [Memo](https://memo.cash/) launched which is a "Decentralized on-chain social network built on Bitcoin Cash."
 
 While I think the site is cool IMO the real innovation is [the protocol](https://memo.cash/protocol). They're leveraging `OP_RETURN` to write data to the blockchain and prefixing it w/ one of 7 prefixes to add sematic meaning. This is a really clever idea and w/ `OP_RETURN` going from 80 bytes to 220 bytes on the upcoming May 15th Bitcoin Cash upgrade this idea will only get better.
 

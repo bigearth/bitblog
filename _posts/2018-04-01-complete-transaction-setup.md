@@ -453,8 +453,8 @@ transactionBuilder.addInput(txid, 1)
 // encode #BCHForEveryone as a buffer
 let buf = new Buffer('#BCHForEveryone');
 
-// compile w/ OP_RETURN
-let data = BITBOX.Script.compile([
+// encode w/ OP_RETURN
+let data = BITBOX.Script.encode([
   BITBOX.Script.opcodes.OP_RETURN,
   buf
 ])
@@ -496,11 +496,11 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(re
 
 `sendRawTransaction` returned a `txid` `0f5c2dbde622734d9221afe1a896add4508bfa49045274d3110ab879a2562992` which means our data was written to the blockchain. You can see it at this unspendable UTXO:  [d-694556d7d579da66fc57a52b06fc7ac6](https://blockchair.com/bitcoin-cash/address/d-694556d7d579da66fc57a52b06fc7ac6).
 
-If you decode the raw hex you'll see `OP_RETURN 23424348466f7245766572796f6e65` which you can decompile back to the original string w/ BITBOX.
+If you decode the raw hex you'll see `OP_RETURN 23424348466f7245766572796f6e65` which you can decode back to the original string w/ BITBOX.
 
 ```js
 let fromASM = BITBOX.Script.fromASM("OP_RETURN 23424348466f7245766572796f6e65");
-let arr = BITBOX.Script.decompile(fromASM)
+let arr = BITBOX.Script.decode(fromASM)
 arr[1].toString('ascii')
 // #BCHForEveryone
 ```

@@ -229,7 +229,7 @@ Our transaction is almost ready to roll. Now we need to sign and build it. Then 
 let keyPair = BITBOX.HDNode.toKeyPair(changeAddressNode0);
 // sign w/ HDNode
 let redeemScript;
-transactionBuilder.sign(0, keyPair, redeemScript, transactionsBuilder.hashTypes.SIGHASH_ALL, originalAmount);
+transactionBuilder.sign(0, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount);
 // build tx
 let tx = transactionBuilder.build();
 // output rawhex

@@ -43,7 +43,7 @@ the new OP codes and larger block limit.
 
 ##### Address
 
-bitcoincash:qz7lane6hv59rwuv6drp5zq5gdszxdep6qgspkedgx
+bitcoincash:qprjht8an8quhwnymrvcnnhs3eca4accx5rdsp0clh
 
 ##### Message
 

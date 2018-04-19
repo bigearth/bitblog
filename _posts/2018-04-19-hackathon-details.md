@@ -8,7 +8,7 @@ Daily more and more developers are checking out BITBOX and we're getting tons of
 
 ## Sat April 21st
 
-**Location**: 55 New Montgomery St., 3rd Floor, Suite 324
+**Location**: 55 New Montgomery St., 3rd Floor, Suite 324, San Francisco
 
 **Time**: Noon PST&ndash;8PM
 
@@ -49,4 +49,4 @@ IHDFHFckORQn8DInFhpzwpd2ftOxbUb4gA4fm4Y/dk+KYNIRwDhGN+hgsKQys9I7Q60ebkd89B0hn1XL
 
 ## More info
 
-The [Bitcoin Cash Fund](https://twitter.com/BitcoinCashFund/status/986947526933741568) is hosting a BITBOX AMA in their [Discord Channel](http://ambassador.cash/) on Friday Apr 20th @ 1pm. Stop by the #bitbox room and find out what we're all about. 
+The [Bitcoin Cash Fund](https://twitter.com/BitcoinCashFund/status/986947526933741568) is hosting a BITBOX AMA in their [Discord Channel](http://ambassador.cash/) on Friday Apr 20th @ 1pm. Stop by the #bitbox room and find out what we're all about.

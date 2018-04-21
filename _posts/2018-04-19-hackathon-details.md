@@ -50,3 +50,7 @@ IHDFHFckORQn8DInFhpzwpd2ftOxbUb4gA4fm4Y/dk+KYNIRwDhGN+hgsKQys9I7Q60ebkd89B0hn1XL
 ## More info
 
 The [Bitcoin Cash Fund](https://twitter.com/BitcoinCashFund/status/986947526933741568) is hosting a BITBOX AMA in their [Discord Channel](http://ambassador.cash/) on Friday Apr 20th @ 1pm. Stop by the #bitbox room and find out what we're all about.
+
+## Live Stream
+
+The [Bitcoin Cash Fund](https://twitter.com/BitcoinCashFund/status/987719300931837952) are going to be streaming the hackathon from 6&ndash;8pm on [their livestream channel](https://www.youtube.com/c/BitcoinCashFund/live). Join us to ask questions and check out demos.

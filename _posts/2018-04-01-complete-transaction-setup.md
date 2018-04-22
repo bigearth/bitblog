@@ -43,7 +43,7 @@ This will install the `bitbox-cli` command line utility and give you `bitbox new
 Now BITBOX is installed and you can have it scaffold out an app.
 
 ```
-bitbox new --title myApp
+bitbox new myApp
 
 ******   ** ********** ******     *******   **     **
 /*////** /**/////**/// /*////**   **/////** //**   **
@@ -57,7 +57,7 @@ bitbox new --title myApp
 Creating myApp/ directory
 Creating src/ directory: ./myApp/src
 Creating tests/ directory: ./myApp/tests
-Creating bitbox.js configuration file
+Creating bitbox.js configuration file: ./myApp/bitbox.js
 All done. ✅
 Go get em! Remember--with great power comes great responsibility. 🚀
 
@@ -76,7 +76,8 @@ exports.config = {
       host: "localhost",
       port: "8332",
       username: "",
-      password: ""
+      password: "",
+      corsproxy: false
     }
   }
 };
@@ -98,14 +99,16 @@ exports.config = {
       host: "localhost",
       port: "8332",
       username: "",
-      password: ""
+      password: "",
+      corsproxy: false
     },
     production: {
       protocol: "http",
       host: "ip.address.of.node",
       port: "8332",
       username: "l337",
-      password: "h4x0r"
+      password: "h4x0r",
+      corsproxy: false
     }
   }
 };

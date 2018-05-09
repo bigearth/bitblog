@@ -450,7 +450,7 @@ let originalAmount = 7651;
 // txid
 let txid = "40e974d91a269b333adcb6d3ca7ac871681262ab84170b7e741141193013bad0";
 
-// add input txid, vout index and amount of satoshis
+// add input txid and vout index
 transactionBuilder.addInput(txid, 1)
 
 // encode #BCHForEveryone as a buffer

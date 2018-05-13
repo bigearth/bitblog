@@ -30,7 +30,7 @@ let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic);
 
 ### Master HD Node
 
-With our root seed we can create a [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) master hd node.
+With our root seed we can create a [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) master hd node. The 2nd argument is the network. pass in `'bitcoincash'` for mainnet and `'testnet'` for testnet.
 
 ```js
 // master HDNode
@@ -39,7 +39,7 @@ let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash');
 
 ### Account
 
-Next create a [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) account
+Next create a [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) account. The 2nd argument is the BIP44 HD path.
 
 ```js
 // HDNode of BIP44 account
@@ -48,19 +48,11 @@ let account = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'");
 
 ### Change
 
+Create the first external change address per BIP44.
+
 ```js
 // derive the first external change address HDNode which is going to spend utxo
 let change = BITBOX.HDNode.derivePath(account, "0/0");
-```
-
-### XPriv
-
-Get the extended private key for the change account. Save this for later
-
-```js
-// get the xpriv so we can recreate this node later
-let xpriv = BITBOX.HDNode.toXPriv(change);
-// xprvA3PBTeH2TL7MWf8BmvPfHc4be37Rm4id4AwpcDvJm582QWn1qgxPMa7EjRK2cUHJE4Kwk3oBkxKNh7fFarWRagJYuuLTukfq28VWd7GxBFQ
 ```
 
 ### Cash Address
@@ -232,7 +224,7 @@ let BITBOX = new BITBOXCli({
 });
 
 // create mnemonic
-let mnemonic =  'slam tag city glass asthma mention rich leader snake prevent fatal trick typical gallery scare sort clip wolf strike float dwarf just clip mail';
+let mnemonic = 'slam tag city glass asthma mention rich leader snake prevent fatal trick typical gallery scare sort clip wolf strike float dwarf just clip mail';
 
 // root seed buffer
 let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic);
@@ -245,10 +237,6 @@ let account = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'");
 
 // derive the first external change address HDNode which is going to spend utxo
 let change = BITBOX.HDNode.derivePath(account, "0/0");
-// get the xpriv so we can recreate this node later
-
-let xpriv = BITBOX.HDNode.toXPriv(change);
-// xprvA3PBTeH2TL7MWf8BmvPfHc4be37Rm4id4AwpcDvJm582QWn1qgxPMa7EjRK2cUHJE4Kwk3oBkxKNh7fFarWRagJYuuLTukfq28VWd7GxBFQ
 
 // get the cash address
 let cashAddress = BITBOX.HDNode.toCashAddress(change);

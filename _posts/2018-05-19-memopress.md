@@ -10,7 +10,7 @@ Today we're exicited to release [memopress](https://bigearth.github.io/bitblog/)
 
 ## Usage
 
-Memopress supports encoding and decoding payloads for 100% of each the Memo and BlockPress protocols.
+Memopress supports encoding and decoding payloads for 100% of each the [Memo](https://memo.cash/protocol) and [BlockPress](https://www.blockpress.com/developers/blockpress-protocol) protocols.
 
 ### Install
 
@@ -205,3 +205,7 @@ memopress.decode('OP_RETURN 4493 30324 4c6f73743a2054686520436f6d706c65746520436
 //   action: 'Create Post in Community',
 //   message: 'Lost: The Complete Collection - Seasons 1 - 6' }
 ```
+
+## Summary
+
+Memo/BlockPress are innovative ideas that demonstrate features which exist on the Bitcoin Cash blockchain and nowhere else. As the Bitcoin Cash ecosystem continues to mature BITBOX will release open source tools which accelerate how quickly devs can adopt them.

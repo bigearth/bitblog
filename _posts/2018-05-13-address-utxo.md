@@ -214,14 +214,7 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(re
 let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
 
 // Instantiate BITBOX and pass in creds for a full node.
-let BITBOX = new BITBOXCli({
-  protocol: "http",
-  host: "138.68.54.100",
-  port: "8332",
-  username: "bitcoin",
-  password: "xhFjluMJMyOXcYvF",
-  corsproxy: "remote"
-});
+let BITBOX = new BITBOXCli();
 
 // create mnemonic
 let mnemonic = 'slam tag city glass asthma mention rich leader snake prevent fatal trick typical gallery scare sort clip wolf strike float dwarf just clip mail';
@@ -244,15 +237,15 @@ let cashAddress = BITBOX.HDNode.toCashAddress(change);
 
 BITBOX.Address.utxo('bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga').then((result) => {
   console.log(result);
-  // [ { txid: 'aeaadaa9e952bf9fe02db6f261f31db2ab42224c9c8da73d78e2978eca372594',
-  //   vout: 0,
-  //   scriptPubKey: '76a91426a2269210eee1c77d44830a6f828bfb600110dd88ac',
-  //   amount: 0.00006893,
-  //   satoshis: 6893,
-  //   height: 530048,
-  //   confirmations: 1,
-  //   legacyAddress: '14XGviVV31TudFn8TEkBduLFyLa8fwPE5G',
-  //   cashAddress: 'bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga' } ]
+  // [ { txid: '51366a68d148f360c30714f878584ce534cad53e6827937c1040a18ef16f623e',
+  //     vout: 0,
+  //     scriptPubKey: '76a91426a2269210eee1c77d44830a6f828bfb600110dd88ac',
+  //     amount: 0.00009613,
+  //     satoshis: 9613,
+  //     confirmations: 0,
+  //     ts: 1527795652,
+  //     legacyAddress: '14XGviVV31TudFn8TEkBduLFyLa8fwPE5G',
+  //     cashAddress: 'bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga' } ]
 
   // instance of transaction builder
   let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
@@ -299,7 +292,7 @@ BITBOX.Address.utxo('bitcoincash:qqn2yf5jzrhwr3magjps5muz30akqqgsm5q7wcgkga').th
 
 ### Success
 
-If we did that correct we should get back a txid [b1af7ddb049d39d34df938f3ac22248cfc3c845dc2d6381a718e971e3e12d8d5](https://explore.bitbox.earth/transaction/b1af7ddb049d39d34df938f3ac22248cfc3c845dc2d6381a718e971e3e12d8d5).
+If we did that correct we should get back a txid [1549abf70bf1f59618d650d72bb71711ef62e53e30138e326aab996ab6e54bb3](https://explore.bitbox.earth/transaction/1549abf70bf1f59618d650d72bb71711ef62e53e30138e326aab996ab6e54bb3).
 
 ## Summary
 

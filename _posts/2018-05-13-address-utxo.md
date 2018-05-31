@@ -211,7 +211,7 @@ BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(re
 
 ```js
 // include BITBOX
-let BITBOXCli = require('bitbox-cli/lib/bitboxcli').default;
+let BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default;
 
 // Instantiate BITBOX and pass in creds for a full node.
 let BITBOX = new BITBOXCli();

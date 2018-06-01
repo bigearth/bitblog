@@ -4,7 +4,9 @@ title:  "Utilities part 1"
 date:   2018-03-05
 ---
 
-`bitbox-cli` recently added 2 new Objects full of utility methods to help you accelerate your $BCH workflow. The <code>BitcoinCash</code> methods convert between satoshis and whole units. They also convert legacy addresses to cashaddr and reverse as well as detecting address formats, types and networks.
+`bitbox-cli` recently added 3 new Objects full of utility methods to help you accelerate your $BCH workflow. The <code>BitcoinCash</code> methods convert between satoshis and whole units.
+
+The <code>Address</code> methods let you convert legacy addresses to cashaddr and reverse as well as detecting address formats, types and networks.
 
 The <code>Crypto</code> methods let you create sha256 and ripemd160 hashes as well as generate random bytes. Together the <code>BitcoinCash</code> and <code>Crypto</code> utilities let you quickly build out a great $BCH application.
 
@@ -16,61 +18,74 @@ BITBOX.BitcoinCash.toSatoshi(9)
 
 BITBOX.BitcoinCash.toBitcoinCash(900000000)
 // 9
+```
 
-BITBOX.BitcoinCash.toLegacyAddress('bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
+[More Info](https://www.bitbox.earth/bitboxcli/bitcoincash)
+
+## <code>Address</code>
+
+```js
+BITBOX.Address.toLegacyAddress('bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl')
 // 1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN
 
-BITBOX.BitcoinCash.toCashAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN')
+BITBOX.Address.toCashAddress('1HiaTupadqQN66Tvgt7QSE5Wg13BUy25eN')
 // bitcoincash:qzm47qz5ue99y9yl4aca7jnz7dwgdenl85jkfx3znl
 
-BITBOX.BitcoinCash.isLegacyAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.isLegacyAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // false
 
-BITBOX.BitcoinCash.isCashAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.isCashAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // true
 
-BITBOX.BitcoinCash.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.isMainnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // true
 
-BITBOX.BitcoinCash.isTestnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.isTestnetAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 //false
 
-BITBOX.BitcoinCash.isP2PKHAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.isP2PKHAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // true
 
-BITBOX.BitcoinCash.isP2SHAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.isP2SHAddress('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // false
 
-BITBOX.BitcoinCash.detectAddressFormat('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.detectAddressFormat('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // cashaddr
 
-BITBOX.BitcoinCash.detectAddressNetwork('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
+BITBOX.Address.detectAddressNetwork('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s')
 // mainnet
 
-BITBOX.BitcoinCash.detectAddressType('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s');
+BITBOX.Address.detectAddressType('bitcoincash:qqfx3wcg8ts09mt5l3zey06wenapyfqq2qrcyj5x0s');
 // p2pkh
 ```
 
-[More Info](https://www.bitbox.earth/bitboxcli#bitcoinCash)
+[More Info](https://www.bitbox.earth/bitboxcli/address)
 
 ## <code>Crypto</code>
 
 ```js
-let data = 'EARTH';
-BITBOX.Crypto.createHash(data, 'sha256')
-// bcfee25a8baf6808fce5ff4e63cf21c8d114853ca7eacdcc3c210d73c58dab66
+let buffer = Buffer.from('0101010101010101', 'hex')
+BITBOX.Crypto.sha256(buffer)
+// <Buffer 04 ab c8 82 1a 06 e5 a3 09 37 96 7d 11 ad 10 22 1c b5 ac 3b 52 73 e4 34 f1 28 4e e8 71 29 a0 61>
 
-BITBOX.Crypto.createSHA256Hash(data)
-// bcfee25a8baf6808fce5ff4e63cf21c8d114853ca7eacdcc3c210d73c58dab66
+let buffer = Buffer.from('0101010101010101', 'hex')
+BITBOX.Crypto.ripemd160(buffer)
+// <Buffer 58 25 70 1b 4b 97 67 fd 35 06 3b 28 6d ca 35 82 85 3e 06 30>
 
-BITBOX.Crypto.createRIPEMD160Hash(data)
-// ca700bba3bd37304b9bd923652245f598ece8afe
+let buffer = Buffer.from('0101010101010101', 'hex')
+BITBOX.Crypto.hash256(buffer)
+// <Buffer 72 83 38 d9 9f 35 61 75 c4 94 5e f5 cc cf a6 1b 7b 56 14 3c bb f4 26 dd d0 e0 fc 7c fe 8c 3c 23>
 
-BITBOX.Crypto.randomBytes(32)
-// 6e1453357f6f99d19d2a6554f35eab65b6c27f6572e31d7f2faa696cac57759b
+let buffer = Buffer.from('0101010101010101', 'hex')
+BITBOX.Crypto.hash160(buffer)
+// <Buffer ab af 11 19 f8 3e 38 42 10 fe 8e 22 2e ac 76 e2 f0 da 39 dc>
+
+BITBOX.Crypto.randomBytes(16)
+// <Buffer 8c 5e 76 62 2f 4c bf cc 07 db b2 4f ea ea 1e d6>
 ```
 
-[More Info](https://www.bitbox.earth/bitboxcli#crypto)
+[More Info](https://www.bitbox.earth/bitboxcli/crypto)
+
 ## Credits
 
 `bitbox-cli` leverages several really great libraries. Please show these people support.

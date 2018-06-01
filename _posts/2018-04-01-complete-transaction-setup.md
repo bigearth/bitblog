@@ -36,7 +36,7 @@ Once those are both installed you're ready to install BITBOX.
 npm install bitbox-cli --global
 ```
 
-This will install the `bitbox-cli` command line utility and give you `bitbox new`, `bitbox console` and `bitbox scaffold`
+This will install the `bitbox-cli` command line utility and give you `bitbox new`, `bitbox console` and `bitbox paper`
 
 ## Create a new app
 
@@ -72,56 +72,18 @@ cd myApp/
 exports.config = {
   networks: {
     development: {
-      protocol: "http",
-      host: "localhost",
-      port: "8332",
-      username: "",
-      password: "",
-      corsproxy: false
+      restURL: "https://rest.bitbox.earth/v1/"
     }
   }
 };
 ```
-
-If you open `bitbox.js` you'll see that it comes w/ creds for a `development` environment. We'll soon add some `production` credentials.
-
-### Full $BCH node
-
-For you to send the transactions which you're about to generate to the actual $BCH network you're going to need a full running $BCH node. Follow my steps on [how to setup a $BCH node on Digital Ocean](https://gist.github.com/cgcardona/843f81f5865f755b4c90513c61ae7612).
-
-Once you've done that add the credentials to your `bitbox.js` file by adding a `production` object.
-
-```js
-exports.config = {
-  networks: {
-    development: {
-      protocol: "http",
-      host: "localhost",
-      port: "8332",
-      username: "",
-      password: "",
-      corsproxy: false
-    },
-    production: {
-      protocol: "http",
-      host: "ip.address.of.node",
-      port: "8332",
-      username: "l337",
-      password: "h4x0r",
-      corsproxy: false
-    }
-  }
-};
-```
-
-Great work. You've now installed NodeJS, `npm`, `bitbox-cli`, set up a full $BCH node and stubbed out an empty BITBOX app. The next step is to open a console.
 
 ## Console
 
 BITBOX ships w/ a custom NodeJS repl that has the entire BITBOX API built in. To use it run the following:
 
 ```
-bitbox console --environment production
+bitbox console --environment development
 > BITBOX.Mnemonic.generate(256);
 // fresh base moral lunch jacket later shallow verify coffee answer gospel memory lawn economy cover legal slam help giggle enroll basic series essay during
 
@@ -201,7 +163,7 @@ Building on our previous code examples we need to create an instance of `Transac
 
 ```js
 // instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
+let transactionBuilder = new BITBOX.TransactionBuilder();
 // original amount of satoshis in vin
 let originalAmount = 75827;
 // txid of vin
@@ -261,7 +223,7 @@ let bip44BCHAccount = BITBOX.HDNode.fromXPriv(xpriv);
 let changeAddressNode0 = BITBOX.HDNode.derivePath(bip44BCHAccount, "0/0");
 
 // instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
+let transactionBuilder = new BITBOX.TransactionBuilder();
 
 // txid of vin
 let txid = 'c2aa3c36c77c836f99b73210994d86067db49977920a0e49e04041bac137923d';
@@ -320,7 +282,7 @@ let xpriv = 'xprv9ycRUKofpapUBBdkNbBrLAZodKr4Q7LhgmcLppwS7yicaGuEQ9egswHEsgJj8sj
 let bip44BCHAccount = BITBOX.HDNode.fromXPriv(xpriv);
 
 // instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
+let transactionBuilder = new BITBOX.TransactionBuilder();
 
 // txid of vin
 let txid = '72eb365f0f8d692edb5aa8b0d32948c21a80938b8f2870b68a5d58cefdabd513';
@@ -379,7 +341,7 @@ let xpriv = 'xprv9ycRUKofpapUBBdkNbBrLAZodKr4Q7LhgmcLppwS7yicaGuEQ9egswHEsgJj8sj
 let bip44BCHAccount = BITBOX.HDNode.fromXPriv(xpriv);
 
 // instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
+let transactionBuilder = new BITBOX.TransactionBuilder();
 
 // txid of vin
 let txid = '67d32ac84d78caa7eaaf8bab6197a66a0945625a282595e75622c33aaccfa1b9';
@@ -442,7 +404,7 @@ Let's write `#BCHForEveryone` to the blockchain.
 
 ```js
 // instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash')
+let transactionBuilder = new BITBOX.TransactionBuilder();
 
 // amount of satoshis at vout
 let originalAmount = 7651;

@@ -29,7 +29,7 @@ To quickly create a [React app w/ BITBOX web bindings](https://github.com/bigear
 8. Open a browser to `http://localhost:3000/` and confirm you are seeing a basic BIP44 wallet
 9. Win
 
-![Hello BITBOX]({{ "/assets/hello-bitbox.png" | absolute_url }})
+![Hello BITBOX]({{ "/assets/bip44.png" | absolute_url }})
 
 ## Angular
 
@@ -52,7 +52,7 @@ To quickly create an [Angular app w/ BITBOX web bindings](https://github.com/big
 8. Open a browser to `http://localhost:4200/` and confirm you are seeing a basic BIP44 wallet
 9. Win
 
-![Hello BITBOX]({{ "/assets/hello-bitbox.png" | absolute_url }})
+![Hello BITBOX]({{ "/assets/bip44.png" | absolute_url }})
 
 ## Node
 
@@ -74,6 +74,8 @@ To quickly create a [Node JS app w/ BITBOX bindings](https://github.com/bigearth
   * `npm start`
 8. Confirm you are seeing a basic BIP44 wallet
 9. Win
+
+![Hello BITBOX]({{ "/assets/nodebip44.png" | absolute_url }})
 
 ## Config
 

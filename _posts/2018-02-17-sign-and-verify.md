@@ -30,19 +30,18 @@ If the address or signature are incorrectly formatted or the signature doesn't m
 
 ## Using the command line
 
-BITBOX supports the entire Bitcoin Cash RPC. [`bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) now supports `signmessage`, `signmessagewithprivkey` and `verifymessage` in cashaddr (w/ or w/out the prefix) and legacy.
+BITBOX supports the entire Bitcoin Cash RPC. [`bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) now supports, `signmessagewithprivkey` and `verifymessage` in cashaddr (w/ or w/out the prefix) and legacy.
+
+### Sign
 
 ```
-> BITBOX.signmessage("bitcoincash:qrqxcnj3z6rsg4k6lcshsh3a4lftxa03aqyy258tm7", "BCH FTW")
-> H1K8O9ho7qhDmNpzxKoi98RAKpvOiC/jXx4eow1GT0JaR2QipI2B2JOvOEp++EaPuLcjWsbEsgoV6jSrknb17j4=
+BITBOX.BitcoinCash.signMessageWithPrivKey('KxtpRDUJDiutLaTV8Vuavhb6h7zq9YV9ZKA3dU79PCgYmNVmkkvS', "EARTH");
+ // IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=
 ```
 
-```
-> BITBOX.verifymessage("bitcoincash:qrqxcnj3z6rsg4k6lcshsh3a4lftxa03aqyy258tm7", "H1K8O9ho7qhDmNpzxKoi98RAKpvOiC/jXx4eow1GT0JaR2QipI2B2JOvOEp++EaPuLcjWsbEsgoV6jSrknb17j4=", "BCH FTW")
-> true
-```
+### Verify
 
 ```
-> BITBOX.signmessagewithprivkey("KwM8QgcNy2aLnicbQYjXMJUMWYPvLW8ZD86ZTqCaQ8pQmQoS6YY4", "Winning")
-> IJ/A0vEIy+RdZ1DRVwlkVWh2ggTJu612DhW0sgj88w4iCfc+1BP1Ib/3ZZYT6YAUyWuG8c8/wlV+uwE0s1kUE8s=
+BITBOX.BitcoinCash.verifyMessage('bitcoincash:qp2zvw3zpk5xx43w4tve7mtekd9kaxwj4uenq9eupv', 'IIYVhlo2Z6TWFjYX1+YM+7vQKz0m+zYdSe4eYpFLuAQDEZXqll7lZC8Au22VI2LLP5x+IerZckVk3QQPsA3e8/8=', 'EARTH')
+true
 ```

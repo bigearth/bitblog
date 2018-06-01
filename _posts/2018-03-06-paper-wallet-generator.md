@@ -43,11 +43,11 @@ This method is useful if you want to handle QR code generation yourself and just
 
 ```js
 // First create a mnemonic from 32 bytes of random entropy
-let mnemonic = BITBOX.BitcoinCash.entropyToMnemonic(32);
+let mnemonic = BITBOX.Mnemonic.generate(256);
 // symptom owner ridge follow buffalo choose stem depend million jar lemon claw color credit remove model pudding slot fiber west heavy ranch bird wet
 
 // Then call `keypairsFromMnemonic` and pass in your mnemonic and how many keypairs you'd like
-BITBOX.BitcoinCash.keypairsFromMnemonic(mnemonic, 5);
+BITBOX.Mnemonic.toKeypairs(mnemonic, 5)
 // it returns the following array.
 //
 // [ { privateKeyWIF: 'Kz6b1TszeUGaypUpRCnfD2L17bQSW93o4j3VMpvT5e5BqaF9XkyP',

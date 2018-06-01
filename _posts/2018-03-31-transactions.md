@@ -9,44 +9,49 @@ The essense of Bitcoin Cash is all about sending and receiving transactions. The
 ## `TransactionBuilder`
 
 ```js
-// the mnemonic for your root seed. Can be generated w/ BITBOX.Mnemonic.generateMnemonic(256)
-let mnemonic = 'your mnemonic';
+// create 256 bit BIP39 mnemonic
+let mnemonic = BITBOX.Mnemonic.generate(256)
 
 // root seed buffer
-let rootSeedBuffer = BITBOX.Mnemonic.mnemonicToSeedBuffer(mnemonic);
+let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic);
 
 // master HDNode
-let masterHDNode = BITBOX.HDNode.fromSeedBuffer(rootSeedBuffer, 'bitcoincash');
+let masterHDNode = BITBOX.HDNode.fromSeed(rootSeed, 'bitcoincash');
+
+// HDNode of BIP44 account
+let account = BITBOX.HDNode.derivePath(masterHDNode, "m/44'/145'/0'");
+
+// derive the first external change address HDNode which is going to spend utxo
+let change = BITBOX.HDNode.derivePath(account, "0/0");
+
+// instance of transaction builder
+let transactionBuilder = new BITBOX.TransactionBuilder();
+// original amount of satoshis in vin
+let originalAmount = result[0].satoshis;
+
+// index of vout
+let vout = result[0].vout;
+
+// txid of vout
+let txid = result[0].txid;
+
+// add input with txid and index of vout
+transactionBuilder.addInput(txid, vout);
 
 // get byte count to calculate fee. paying 1 sat/byte
 let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 1 });
-
-// node of address which is going to spend utxo
-let bip44BCHAccount0 = masterHDNode.derivePath(`m/44'/145'/0'/0/0`);
-
-// keypair
-let keyPair = bip44BCHAccount0.keyPair;
-
-// amount of satoshis in vin
-let originalAmount = 14438;
-
+// 192
 // amount to send to receiver. It's the original amount - 1 sat/byte for tx size
 let sendAmount = originalAmount - byteCount;
 
-// txid of vin
-let txid = 'txid';
+// add output w/ address and amount to send
+transactionBuilder.addOutput(cashAddress, sendAmount);
+// keypair
+let keyPair = BITBOX.HDNode.toKeyPair(change);
 
-// instance of transaction builder
-let transactionBuilder = new BITBOX.TransactionBuilder('bitcoincash');
-
-// add as many inputs as you wish
-transactionBuilder.addInput(txid, 0, keyPair);
-
-// add as many outputs as you wish
-transactionBuilder.addOutput('bitcoincash:to-address', sendAmount);
-
-// sign each vin
-transactionBuilder.sign(0, originalAmount);
+// sign w/ HDNode
+let redeemScript;
+transactionBuilder.sign(0, keyPair, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount);
 
 // build tx
 let tx = transactionBuilder.build();
@@ -55,7 +60,11 @@ let tx = transactionBuilder.build();
 let hex = tx.toHex();
 
 // sendRawTransaction to running BCH node
-BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => { console.log(result); }, (err) => { console.log(err); });
+BITBOX.RawTransactions.sendRawTransaction(hex).then((result) => {
+  console.log(result);
+}, (err) => {
+  console.log(err);
+});
 ```
 
 ## Limitations

@@ -4,13 +4,11 @@ title:  "Mnemonic Word Lists"
 date:   2018-03-12
 ---
 
-Bitcoin Cash is meant for people all over EARTH. Most of those people don't speak english. That's why today we're releasing `mnemonicWordLists` so you can generate mnemonics in 8 different languages to help spread $BCH to people all over the planet.
+Bitcoin Cash is meant for people all over EARTH. Most of those people don't speak english. That's why today we're releasing `wordLists` so you can generate mnemonics in 8 different languages to help spread $BCH to people all over the planet.
 
-We're also releasing `translateMnemonic` to make it quick and easy to translate your mnemonics between any of the 8 supported languages.
+## `wordLists`
 
-## `mnemonicWordLists`
-
-`BITBOX.BitcoinCash` now has a `mnemonicWordLists` method which returns an object w/ the following keys:
+`BITBOX.Mnemonic` now has a `wordLists` method which returns an object w/ the following keys:
 
 ```js
 {
@@ -25,80 +23,64 @@ We're also releasing `translateMnemonic` to make it quick and easy to translate 
 }
 ```
 
-Each of these keys contains an array w/ 2048 words in that language. 4 `BITBOX.BitcoinCash` methods now accept that wordlist as their 2nd argument and will create and validate mnemonics in those languages.
+Each of these keys contains an array w/ 2048 words in that language. 4 `BITBOX.Mnemonic` methods now accept that wordlist as their 2nd argument and will create and validate mnemonics in those languages.
 
 The methods which now accepts a `wordslist` argument are
 
-* `generateMnemonic`
-* `entropyToMnemonic`
-* `mnemonicToEntropy`
-* `validateMnemonic`
+* `generate`
+* `fromEntropy`
+* `toEntropy`
+* `validate`
 
 ### Examples
 
 #### Chinese simplified
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().chinese_simplified);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().chinese_simplified);
 // 南 英 钉 油 冷 馏 扶 搬 特 规 波 顺
 ```
 
 #### Chinese traditional
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().chinese_traditional);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().chinese_traditional);
 // 蒸 融 陣 默 甲 蓋 躺 靈 原 富 恆 份
 ```
 
 #### French
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().french);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().french);
 // annonce ampleur sanglier peser acheter cultiver abroger embellir résoudre dialogue grappin lanterne
 ```
 
 #### Italian
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().italian);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().italian);
 // raschiato comodo petalo lira ipotesi mondina scettro ritmico bacino abrasivo attrito eletto
 ```
 
 #### Japanese
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().japanese);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().japanese);
 // かいが　こける　つねづね　けおりもの　けむり　せんろ　しゃくほう　けんみん　あわせる　ひつぎ　みてい　たいない
 ```
 
 #### Korean
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().korean);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().korean);
 // 회색 제공 적성 만일 당장 확인 사람 화장 숫자 여군 대도시 하순
 ```
 
 #### Spanish
 
 ```js
-BITBOX.BitcoinCash.generateMnemonic(128, BITBOX.BitcoinCash.mnemonicWordLists().spanish);
+BITBOX.Mnemonic.generate(128, BITBOX.Mnemonic.wordLists().spanish);
 // combate hundir trauma edad élite medio grave pie aduana donar pimienta bodega
-```
-
-## `translateMnemonic`
-
-BITBOX enables you to translate your mnemonics between any of the 8 supported languages.
-
-```js
-// create korean mnemonic
-let koreanMnemonic = BITBOX.BitcoinCash.generateMnemonic(256, BITBOX.BitcoinCash.mnemonicWordLists().korean);
-// 상대 조직 피곤 기간 장면 저런 서쪽 신고 연예인 고춧가루 활짝 세종대왕 거울 대충 벨트 제일 저곳 남녀 수술 수학 학원 금년 유학 인공
-// translate it to spanish
-let spanishMnemonic = BITBOX.BitcoinCash.translateMnemonic(koreanMnemonic, 'korean', 'spanish')
-// gato razón torero bobina pintor poema grieta leer mirar aparato vivaz hembra alambre cielo esencia rabia poder buscar incapaz instante trofeo bicho oído pájaro
-// translate back to korean
-BITBOX.BitcoinCash.translateMnemonic(spanishMnemonic, 'spanish', 'korean')
-// 상대 조직 피곤 기간 장면 저런 서쪽 신고 연예인 고춧가루 활짝 세종대왕 거울 대충 벨트 제일 저곳 남녀 수술 수학 학원 금년 유학 인공
 ```
 
 ## `bitbox paper`
@@ -136,6 +118,6 @@ BITBOX GUI has also been updated to generate mnemonics in all of the above langu
 
 ## Summary
 
-With `mnemonicWordLists` it's now easier than ever to generate mnemonics in languages other than english to help spread $BCH all over the EARTH.
+With `wordLists` it's now easier than ever to generate mnemonics in languages other than english to help spread $BCH all over the EARTH.
 
 [More info](https://www.bitbox.earth/bitboxcli/bitcoincash)

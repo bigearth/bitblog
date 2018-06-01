@@ -26,8 +26,8 @@ Entropy (bits/bytes) | Mnemonic length (words)
 To do this we're using NodeJS's [`crypto.randomBytes`](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback) and the wonderful [BIP39.js](https://github.com/bitcoinjs/bip39).
 
 ```javascript
-let randomBytes = Crypto.randomBytes(bytes);
-let mnemonic = BIP39.entropyToMnemonic(randomBytes);
+let randomBytes = BITBOX.Crypto.randomBytes(32);
+let mnemonic = BITBOX.Mnemonic.fromEntropy(randomBytes);
 ```
 
 ![Mnemonic]({{ "/assets/mnemonic.png" | absolute_url }})
@@ -40,7 +40,7 @@ Next we take an optional password and combined w/ the mnemonic create a root see
 
 ```javascript
 let password = 'l337';
-let rootSeed = BIP39.mnemonicToSeed(mnemonic, password);
+let rootSeed = BITBOX.Mnemonic.toSeed(mnemonic, password);
 ```
 
 ## Master key
@@ -48,7 +48,7 @@ let rootSeed = BIP39.mnemonicToSeed(mnemonic, password);
 Finally we're using [bitcoinlib-js](https://github.com/bitcoinjs/bitcoinjs-lib) to create a masterkey from the rootSeed.
 
 ```javascript
-let masterkey = Bitcoin.HDNode.fromSeedBuffer(rootSeed);
+let masterkey = BITBOX.HDNode.fromSeed(rootSeed);
 ```
 
 This masterkey can be used to create 4 billion child keys. Each of those child keys can produce 4 billion child keys recursively in a derivation path.
@@ -68,12 +68,11 @@ m / purpose' / coin_type' / account' / change / address_index
 ```javascript
 let purpose = "44'";
 let coin = "145'";
-let path = `m/${purpose}/${coin}`;
 let addresses = [];
-let account;
 for (let i = 0; i < 10; i++) {
-  account = masterkey.derivePath(path);
-  addresses.push(account.derive(0).keyPair.toWIF());
+  let path = `m/${purpose}/${coin}/${i}`;
+  let account = BITBOX.HDNode.derivePath(masterkey, path);
+  addresses.push(BITBOX.HDNode.toWIF(BITBOX.HDNode.derive(account, 0)));
 };
 ```
 
@@ -88,7 +87,7 @@ We don't want to display the private key WIF by default to the user because it's
 ![Private WIF]({{ "/assets/private-wif.png" | absolute_url }})
 
 ```javascript
-let publicKey = Bitcoin.ECPair.fromWIF(privKeyWIF).getAddress();
+let publicKey = BITBOX.ECPair.toLegacyAddress(BITBOX.ECPair.fromWIF(privKeyWIF));
 ```
 
 ![Base58Check]({{ "/assets/base58check.png" | absolute_url }})
@@ -98,7 +97,7 @@ let publicKey = Bitcoin.ECPair.fromWIF(privKeyWIF).getAddress();
 `publicKey` from the previous step is Base58Check encoded. You can toggle displaying the address in [CashAddr](https://www.bitcoinabc.org/cashaddr) via [bchaddr.js](https://github.com/bitcoincashjs/bchaddrjs).
 
 ```javascript
-bchaddr.toCashAddress(publicKey)
+BITBOX.Address.toCashAddress(publicKey);
 ```
 
 ![CashAddr]({{ "/assets/cashaddr-public.png" | absolute_url }})

@@ -431,10 +431,10 @@ let byteCount = BITBOX.BitcoinCash.getByteCount({ P2PKH: 1 }, { P2PKH: 2 });
 let sendAmount = originalAmount - byteCount;
 
 // add cash address output
-transactionBuilder.addOutput("bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw", sendAmount)
+transactionBuilder.addOutput("bitcoincash:qpuax2tarq33f86wccwlx8ge7tad2wgvqgjqlwshpw", sendAmount);
 
 // add OP_RETURN and data as output w/ 0 satoshis
-transactionBuilder.addOutput(data, 0)
+transactionBuilder.addOutput(data, 0);
 
 // xpriv
 let xpriv = 'xprv9ycRUKofpapUBBdkNbBrLAZodKr4Q7LhgmcLppwS7yicaGuEQ9egswHEsgJj8sjsxgab79GMkmVXRNSJVT8Dsp5Q8MBmAe5ELN1yUbP9Vb1';
@@ -448,10 +448,10 @@ let key = BITBOX.HDNode.toKeyPair(childNode);
 
 let redeemScript;
 // sign tx
-transactionBuilder.sign(0, key, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount)
+transactionBuilder.sign(0, key, redeemScript, transactionBuilder.hashTypes.SIGHASH_ALL, originalAmount);
 
 // to raw hex
-let hex = transactionBuilder.build().toHex()
+let hex = transactionBuilder.build().toHex();
 // 0200000001d0ba1330194111747e0b1784ab62126871c87acad3b6dc3a339b261ad974e940010000006b483045022100a284b4ac5ed55ac0e2baa02b6bdabbf06f98d2bf6b3fdcea1aea50f55766afd002206181c8e60f738116ba6e16177f3d408e8da2c463c69b27c2531fab84b63a63b24121022d426ef365d6480b127b4980afa4b9415cad5e6f0a9e11b1536d3523597197f3ffffffff02011d0000000000001976a91479d3297d1823149f4ec61df31d19f2fad5390c0288ac0000000000000000116a0f23424348466f7245766572796f6e6500000000
 
 // POST to full $BCH node
@@ -465,8 +465,8 @@ If you decode the raw hex you'll see `OP_RETURN 23424348466f7245766572796f6e65` 
 
 ```js
 let fromASM = BITBOX.Script.fromASM("OP_RETURN 23424348466f7245766572796f6e65");
-let arr = BITBOX.Script.decode(fromASM)
-arr[1].toString('ascii')
+let arr = BITBOX.Script.decode(fromASM);
+arr[1].toString('ascii');
 // #BCHForEveryone
 ```
 
